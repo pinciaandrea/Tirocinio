@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,10 @@ import android.widget.Button;
 
 public class ActivityOne extends AppCompatActivity
         implements View.OnClickListener {
+
+    ViewPager viewPager;
+    SlideAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,11 @@ public class ActivityOne extends AppCompatActivity
                 return false;
             }
         });
+            viewPager= (ViewPager) findViewById(R.id.viewPager_id);
+
+            adapter= new SlideAdapter(this);
+
+            viewPager.setAdapter(adapter);
 
             Button bhome = (Button) findViewById(R.id.button);
             bhome.setOnClickListener(new View.OnClickListener() {
