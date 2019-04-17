@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:id="@+id/imageView_id"
-        android:src="@drawable/ragazza"
+        android:src="@drawable/lido4"
         android:scaleType="fitXY"
-        android:contentDescription="@string/donna"/>
+        android:contentDescription="@string/lido4"/>
 
 </LinearLayout>

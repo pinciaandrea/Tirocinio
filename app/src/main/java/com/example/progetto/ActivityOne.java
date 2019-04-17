@@ -55,7 +55,5 @@ public class ActivityOne extends AppCompatActivity
             });
         }
         @Override
-        public void onClick(View v) {
-
-    }
+        public void onClick(View v) { }
 }

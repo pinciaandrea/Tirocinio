@@ -15,9 +15,9 @@ public class SlideAdapter extends PagerAdapter {
     LayoutInflater inflater;
 
     public int [] images={
-      R.drawable.papetedonna,
       R.drawable.lido4,
-      R.drawable.lettinispiaggia
+      R.drawable.lettinispiaggia,
+      R.drawable.papetedonna
     };
 
     public SlideAdapter(Context context) {
