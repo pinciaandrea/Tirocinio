@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_informazioni"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_informazioni"
+        android:title="Informazioni"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_prenotazione"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_prenotazione"
+        android:title="Prenotazione"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_recensioni"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_recensioni"
+        android:title="Recensioni"
+        app:showAsAction="ifRoom" />
+</menu>
