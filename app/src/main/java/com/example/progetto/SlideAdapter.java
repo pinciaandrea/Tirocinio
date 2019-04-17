@@ -16,7 +16,7 @@ public class SlideAdapter extends PagerAdapter {
 
     public int [] images={
       R.drawable.ragazza,
-      R.drawable.sandro
+      R.drawable.sandromagico
     };
 
     public SlideAdapter(Context context) {

@@ -10,6 +10,6 @@
         android:id="@+id/imageView_id"
         android:src="@drawable/ragazza"
         android:scaleType="fitXY"
-        android:contentDescription="@string/donna" />
+        android:contentDescription="@string/donna"/>
 
 </LinearLayout>
