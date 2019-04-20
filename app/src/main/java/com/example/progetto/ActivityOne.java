@@ -39,6 +39,7 @@ public class ActivityOne extends AppCompatActivity
                 return false;
             }
         });
+
             viewPager= (ViewPager) findViewById(R.id.viewPager_id);
 
             adapter= new SlideAdapter(this);
@@ -57,3 +58,4 @@ public class ActivityOne extends AppCompatActivity
         @Override
         public void onClick(View v) { }
 }
+

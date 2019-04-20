@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">progetto</string>
     <string name="lido4">lido4</string>
+    <string name="home">Home</string>
+    <string name="wifi">wifi</string>
+    <string name="park">park</string>
+    <string name="shower">shower</string>
+    <string name="restaurant">restaurant</string>
 </resources>
