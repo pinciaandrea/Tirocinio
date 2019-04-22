@@ -57,6 +57,7 @@
             android:contentDescription="informazioni"
             android:text="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             android:textStyle="bold"
+            android:gravity="center"
             tools:ignore="HardcodedText" />
 
         <ImageButton
@@ -114,6 +115,7 @@
             android:layout_marginTop="315dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="150dp"
+            android:gravity="center"
             tools:layout="@layout/fragment_layout" />
 
     </RelativeLayout>
