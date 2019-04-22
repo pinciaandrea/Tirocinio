@@ -47,19 +47,19 @@
 
         <TextView
             android:id="@+id/textView"
-            android:contentDescription="informazioni"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="169dp"
             android:layout_marginEnd="8dp"
+            android:contentDescription="informazioni"
             android:text="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView3"
             android:layout_width="56dp"
             android:layout_height="52dp"
@@ -70,38 +70,38 @@
             app:srcCompat="@mipmap/wifi"
             android:contentDescription="wifi" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView4"
-            android:layout_width="56dp"
+            android:layout_width="55dp"
             android:layout_height="52dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="128dp"
             android:layout_marginBottom="71dp"
-            app:srcCompat="@mipmap/park"
-            android:contentDescription="park"/>
+            android:contentDescription="park"
+            app:srcCompat="@mipmap/park" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView5"
-            android:layout_width="56dp"
+            android:layout_width="55dp"
             android:layout_height="52dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="128dp"
             android:layout_marginBottom="71dp"
-            app:srcCompat="@mipmap/menu"
-            android:contentDescription="restaurant"/>
+            android:contentDescription="restaurant"
+            app:srcCompat="@mipmap/menu" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView6"
-            android:layout_width="56dp"
+            android:layout_width="55dp"
             android:layout_height="52dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="33dp"
             android:layout_marginBottom="71dp"
-            app:srcCompat="@mipmap/doccia"
-            android:contentDescription="shower"/>
+            android:contentDescription="shower"
+            app:srcCompat="@mipmap/doccia" />
 
         <fragment
             android:id="@+id/map"

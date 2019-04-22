@@ -8,12 +8,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
 private GoogleMap mMap;
+/* https://www.decodexlab.com/zero/12-1-introduzione-google-maps/ */
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_one);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-        .findFragmentById(R.id.map);
+                .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         }
 
@@ -29,10 +31,12 @@ protected void onCreate(Bundle savedInstanceState) {
 public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng firenze = new LatLng(43.776366, 11.247822);
+        final LatLng firenze = new LatLng(43.776366, 11.247822);
+
         mMap.addMarker(new MarkerOptions().position(firenze).title("Siamo a Firenze!"));
+
         CameraPosition cameraPosition = new CameraPosition.Builder().target(firenze).zoom(15).build();
 
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(firenze));
         }
-        }
+}

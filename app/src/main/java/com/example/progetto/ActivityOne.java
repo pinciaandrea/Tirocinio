@@ -1,5 +1,6 @@
 package com.example.progetto;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ActivityOne extends AppCompatActivity
         implements View.OnClickListener {
@@ -17,10 +20,41 @@ public class ActivityOne extends AppCompatActivity
     ViewPager viewPager;
     SlideAdapter adapter;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
+
+        ImageButton wifiButtonALert = (ImageButton)findViewById(R.id.imageView3);
+        ImageButton parkButtonALert = (ImageButton)findViewById(R.id.imageView4);
+        ImageButton eatButtonALert = (ImageButton)findViewById(R.id.imageView5);
+        ImageButton showerButtonALert = (ImageButton)findViewById(R.id.imageView6);
+        wifiButtonALert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "La struttura offre una copertura WIFi in tutto il locale e in un raggio d'azione entro 50 metri dalla struttura stessa.", Toast.LENGTH_LONG).show();
+            }
+        });
+        parkButtonALert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Tra le comodità offerte dal nostro stabilimento, incluso nel prezzo dell'ombrellone avrete accesso al parcheggio privato custodito che troverete appena arrivati e seguendo le indicazioni stradali.", Toast.LENGTH_LONG).show();
+            }
+        });
+        eatButtonALert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "MENU' DEL GIORNO con spaghetti alle vongole, rana pescatrice arrosto e pepata di cozze.", Toast.LENGTH_LONG).show();
+            }
+        });
+        showerButtonALert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Quattro docce grauite a tutti i bagnanti dello stabilimento e possibilità di una doccia calda a €0.50.", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,5 +91,7 @@ public class ActivityOne extends AppCompatActivity
         }
         @Override
         public void onClick(View v) { }
+
+
 }
 
