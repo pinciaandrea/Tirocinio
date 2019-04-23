@@ -1,6 +1,5 @@
 package com.example.progetto;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class ActivityOne extends AppCompatActivity
@@ -26,14 +25,15 @@ public class ActivityOne extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
 
-        ImageButton wifiButtonALert = (ImageButton)findViewById(R.id.imageView3);
-        ImageButton parkButtonALert = (ImageButton)findViewById(R.id.imageView4);
-        ImageButton eatButtonALert = (ImageButton)findViewById(R.id.imageView5);
-        ImageButton showerButtonALert = (ImageButton)findViewById(R.id.imageView6);
+        ImageView wifiButtonALert = findViewById(R.id.imageView3);
+        ImageView parkButtonALert = findViewById(R.id.imageView4);
+        ImageView eatButtonALert = findViewById(R.id.imageView5);
+        ImageView showerButtonALert = findViewById(R.id.imageView6);
         wifiButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "La struttura offre una copertura WIFi in tutto il locale e in un raggio d'azione entro 50 metri dalla struttura stessa.", Toast.LENGTH_LONG).show();
+
             }
         });
         parkButtonALert.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +56,7 @@ public class ActivityOne extends AppCompatActivity
         });
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -74,13 +74,13 @@ public class ActivityOne extends AppCompatActivity
             }
         });
 
-            viewPager= (ViewPager) findViewById(R.id.viewPager_id);
+            viewPager= findViewById(R.id.viewPager_id);
 
             adapter= new SlideAdapter(this);
 
             viewPager.setAdapter(adapter);
 
-            Button bhome = (Button) findViewById(R.id.button);
+            Button bhome = findViewById(R.id.button);
             bhome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

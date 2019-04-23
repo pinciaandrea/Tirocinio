@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,11 +19,12 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_nav_menu" />
 
         <Button
@@ -30,226 +32,235 @@
             style="@android:style/Widget.Material.Light.Button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:text="Home"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="154dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="21dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/vacanze_mare" />
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="175dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton5"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="114dp"
             android:layout_marginTop="375dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton14"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="475dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton15"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="323dp"
             android:layout_marginTop="475dp"
+            android:layout_marginEnd="8dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton6"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="323dp"
             android:layout_marginTop="275dp"
+            android:layout_marginEnd="8dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton11"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="223dp"
             android:layout_marginTop="375dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton17"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="114dp"
             android:layout_marginTop="275dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton12"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="375dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="323dp"
             android:layout_marginTop="175dp"
-            android:layout_marginRight="13dp"
+            android:layout_marginEnd="8dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_busy" />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="114dp"
             android:layout_marginTop="175dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton8"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="223dp"
             android:layout_marginTop="275dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton16"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="223dp"
             android:layout_marginTop="475dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton13"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="114dp"
             android:layout_marginTop="475dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton9"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="275dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton10"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="323dp"
             android:layout_marginTop="375dp"
+            android:layout_marginEnd="8dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="223dp"
             android:layout_marginTop="175dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="142dp"
+            android:layout_marginStart="165dp"
             android:layout_marginBottom="62dp"
-            android:text="Data Picker" />
+            android:text="Data Picker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton16"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
