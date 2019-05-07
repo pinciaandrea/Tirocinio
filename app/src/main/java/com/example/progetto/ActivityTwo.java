@@ -25,6 +25,7 @@ public class ActivityTwo extends AppCompatActivity
                     view.setMinDate(System.currentTimeMillis() -1000);
                 }
         };
+
         Button dataButton = (Button)findViewById(R.id.button4);
         dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +53,17 @@ public class ActivityTwo extends AppCompatActivity
                 return false;
             }
         });
-Button bhome2= (Button) findViewById(R.id.button2);
-bhome2.setOnClickListener(new View.OnClickListener(){
-    @Override
-    public void onClick(View v){
-        Intent intent5 = new Intent(ActivityTwo.this, MainActivity.class);
-        startActivity(intent5);
-    }
-});
-    }
+
+        Button bhome2= (Button) findViewById(R.id.button2);
+        bhome2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent5 = new Intent(ActivityTwo.this, MainActivity.class);
+                startActivity(intent5);
+            }
+        });
+        }
+
     @Override
     public void onClick(View v) {
 
