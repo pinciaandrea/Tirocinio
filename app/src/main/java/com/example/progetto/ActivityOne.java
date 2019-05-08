@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class ActivityOne extends AppCompatActivity
-        implements View.OnClickListener {
+public class ActivityOne extends AppCompatActivity implements View.OnClickListener {
+
 
     ViewPager viewPager;
     SlideAdapter adapter;

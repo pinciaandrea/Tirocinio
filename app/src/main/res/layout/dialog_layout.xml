@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editText_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Inserire username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Inserire password"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Inserire email"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/dialog_inserisci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inserisci" />
+
+        <Button
+            android:id="@+id/dialog_cancella"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancella" />
+    </LinearLayout>
+</LinearLayout>
