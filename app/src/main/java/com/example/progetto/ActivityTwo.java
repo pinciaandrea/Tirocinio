@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
@@ -63,6 +65,60 @@ public class ActivityTwo extends AppCompatActivity
             }
         });
         }
+
+    //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
+    public void btn_showdialogfree(View view) {
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button)mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button)mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    public void btn_showdialogbusy(View view) {
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.busyumbrelladialog, null);
+
+        Button btn_cancel = (Button)mView.findViewById(R.id.btn_cancel);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
 
     @Override
     public void onClick(View v) {
