@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Conferma prenotazione"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#0DBF3B"
         android:textSize="50dp"
         android:textStyle="bold" />
 
