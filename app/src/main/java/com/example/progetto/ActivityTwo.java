@@ -128,7 +128,8 @@ public class ActivityTwo extends AppCompatActivity
         });
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = preferences.getString("Name","1");
+        String name = preferences.getString("Name","0");
+        Log.i("shared",name +"");
         if(name.equals("1")) {
             alertDialog.show();
         }
