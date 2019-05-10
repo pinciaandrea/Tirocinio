@@ -2,12 +2,15 @@ package com.example.progetto;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,24 +19,24 @@ import android.widget.Toast;
 
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
-        @Override
-        protected void onCreate (@Nullable Bundle savedInstanceState){
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    view.setMinDate(System.currentTimeMillis() -1000);
-                }
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                view.setMinDate(System.currentTimeMillis() - 1000);
+            }
         };
 
-        Button dataButton = (Button)findViewById(R.id.button4);
+        Button dataButton = (Button) findViewById(R.id.button4);
         dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog mDate = new DatePickerDialog(ActivityTwo.this, date, 2019, 4, 22);
-                mDate.getDatePicker().setMinDate(System.currentTimeMillis() -1000);
+                mDate.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 mDate.show();
             }
         });
@@ -56,73 +59,84 @@ public class ActivityTwo extends AppCompatActivity
             }
         });
 
-        Button bhome2= (Button) findViewById(R.id.button2);
-        bhome2.setOnClickListener(new View.OnClickListener(){
+        Button bhome2 = (Button) findViewById(R.id.button2);
+        bhome2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent5 = new Intent(ActivityTwo.this, MainActivity.class);
                 startActivity(intent5);
             }
         });
-        }
+    }
 
-    //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
-    public void btn_showdialogfree(View view) {
+        String json_string;
+
+        //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
+        public void btn_showdialogfree (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
 
-        Button btn_cancel = (Button)mView.findViewById(R.id.btn_cancel);
-        Button btn_confirm = (Button)mView.findViewById(R.id.btn_confirm);
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
 
         alert.setView(mView);
 
         final AlertDialog alertDialog = alert.create();
         alertDialog.setCanceledOnTouchOutside(false);
 
-        btn_cancel.setOnClickListener(new View.OnClickListener(){
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View view) {
+            public void onClick(View view) {
                 alertDialog.dismiss();
             }
         });
 
-        btn_confirm.setOnClickListener(new View.OnClickListener(){
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View view) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 alertDialog.dismiss();
             }
         });
-
-        alertDialog.show();
+        // funziona una volta per dispositivo
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String name = preferences.getString("Name","0");
+            Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
     }
 
-    public void btn_showdialogbusy(View view) {
+        public void btn_showdialogbusy (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.busyumbrelladialog, null);
 
-        Button btn_cancel = (Button)mView.findViewById(R.id.btn_cancel);
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
 
         alert.setView(mView);
 
         final AlertDialog alertDialog = alert.create();
         alertDialog.setCanceledOnTouchOutside(false);
 
-        btn_cancel.setOnClickListener(new View.OnClickListener(){
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View view) {
+            public void onClick(View view) {
                 alertDialog.dismiss();
             }
         });
 
-        alertDialog.show();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","1");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
     }
 
-    @Override
-    public void onClick(View v) {
+
+        @Override
+        public void onClick (View v){
 
     }
-}
-
+    }

@@ -2,8 +2,9 @@ package com.example.progetto;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.RequiresPermission;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -95,7 +96,9 @@ public class CustomDialogLogin extends Dialog implements View.OnClickListener {
 
             if (json_string.equals("1")) {
                 Toast.makeText(this.context, "Utente loggato", Toast.LENGTH_LONG).show();
-            } else {
+                String login = json_string;
+                SharedPreferencesSAVE(login);
+            }else {
                 Toast.makeText(this.context, "Utente non registrato", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
@@ -106,4 +109,12 @@ public class CustomDialogLogin extends Dialog implements View.OnClickListener {
             }
         }
     }
+    public void SharedPreferencesSAVE(String Name){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("Name", Name);
+        editor.apply();
+
+    }
+
 }
