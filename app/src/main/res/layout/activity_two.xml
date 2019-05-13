@@ -204,7 +204,7 @@
             android:layout_marginBottom="25dp"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
-            android:onClick="btn_showdialogfree"
+            android:onClick="btn_showdialogfree3"
             app:layout_constraintBottom_toTopOf="@+id/imageButton17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -223,7 +223,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree8"/>
 
         <ImageButton
             android:id="@+id/imageButton16"
@@ -238,7 +238,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree16"/>
 
         <ImageButton
             android:id="@+id/imageButton13"
@@ -253,7 +253,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree13"/>
 
         <ImageButton
             android:id="@+id/imageButton9"
@@ -269,7 +269,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.312"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree9"/>
 
         <ImageButton
             android:id="@+id/imageButton10"
@@ -287,7 +287,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree10"/>
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -303,7 +303,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/umbrella_free"
-            android:onClick="btn_showdialogfree"/>
+            android:onClick="btn_showdialogfree4"/>
 
         <Button
             android:id="@+id/button4"

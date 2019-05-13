@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class ActivityTwo extends AppCompatActivity
@@ -72,7 +73,7 @@ public class ActivityTwo extends AppCompatActivity
         String json_string;
 
         //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
-        public void btn_showdialogfree (View view){
+        public void btn_showdialogfree3 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -96,6 +97,8 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton3);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
         });
@@ -107,7 +110,228 @@ public class ActivityTwo extends AppCompatActivity
             alertDialog.show();
         }
     }
+        public void btn_showdialogfree4 (View view){
 
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton4);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
+        public void btn_showdialogfree9 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton9);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
+        public void btn_showdialogfree8 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton8);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
+        public void btn_showdialogfree10 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton10);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
+        public void btn_showdialogfree13 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton13);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
+        public void btn_showdialogfree16 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton16);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+        // funziona una volta per dispositivo
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        }
+    }
         public void btn_showdialogbusy (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
