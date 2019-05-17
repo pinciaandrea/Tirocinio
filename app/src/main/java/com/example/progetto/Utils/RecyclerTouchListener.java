@@ -1,4 +1,4 @@
-package com.example.progetto;
+package com.example.progetto.Utils;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

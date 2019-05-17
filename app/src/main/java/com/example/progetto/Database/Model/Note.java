@@ -1,4 +1,4 @@
-package com.example.progetto;
+package com.example.progetto.Database.Model;
 
 
 public class Note {

@@ -1,4 +1,4 @@
-package com.example.progetto;
+package com.example.progetto.Utils;
 
 
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.progetto.Database.Model.Note;
+import com.example.progetto.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -7,9 +7,9 @@
     <string name="shower">shower</string>
     <string name="restaurant">restaurant</string>
     <string name="action_settings">Settings</string>
-    <string name="activity_title_home">Notes</string>
-    <string name="msg_no_notes">No notes found!</string>
-    <string name="lbl_new_note_title">New Note</string>
-    <string name="lbl_edit_note_title">Edit Note</string>
-    <string name="hint_enter_note">Enter your note!</string>
+    <string name="activity_title_home">Review</string>
+    <string name="msg_no_notes">Nessuna review!</string>
+    <string name="lbl_new_note_title">Nuova review</string>
+    <string name="lbl_edit_note_title">Modifica la tua review</string>
+    <string name="hint_enter_note">Inserisci la tua review!</string>
 </resources>

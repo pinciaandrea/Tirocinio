@@ -23,6 +23,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.progetto.Database.DatabaseHelper;
+import com.example.progetto.Database.Model.Note;
+import com.example.progetto.Utils.MyDividerItemDecoration;
+import com.example.progetto.Utils.NotesAdapter;
+import com.example.progetto.Utils.RecyclerTouchListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
