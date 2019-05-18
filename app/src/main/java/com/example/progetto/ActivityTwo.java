@@ -108,7 +108,7 @@ public class ActivityTwo extends AppCompatActivity
             Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
-        }  else {
+        } else {
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
