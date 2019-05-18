@@ -184,7 +184,7 @@ public class ActivityThree extends AppCompatActivity
      * Delete - 0
      */
     private void showActionsDialog(final int position) {
-        CharSequence colors[] = new CharSequence[]{"Edit", "Delete"};
+        CharSequence colors[] = new CharSequence[]{"Modifica", "Cancella"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose option");
@@ -224,12 +224,12 @@ public class ActivityThree extends AppCompatActivity
         }
         alertDialogBuilderUserInput
                 .setCancelable(false)
-                .setPositiveButton(shouldUpdate ? "update" : "save", new DialogInterface.OnClickListener() {
+                .setPositiveButton(shouldUpdate ? "Aggiorna" : "Salva", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
 
                     }
                 })
-                .setNegativeButton("cancel",
+                .setNegativeButton("Cancella",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialogBox, int id) {
                                 dialogBox.cancel();
@@ -244,7 +244,7 @@ public class ActivityThree extends AppCompatActivity
             public void onClick(View v) {
                 // Show toast message when no text is entered
                 if (TextUtils.isEmpty(inputNote.getText().toString())) {
-                    Toast.makeText(ActivityThree.this, "Enter note!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityThree.this, "Inserisci la tua review!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     alertDialog.dismiss();

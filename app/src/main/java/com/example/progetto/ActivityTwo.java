@@ -108,6 +108,8 @@ public class ActivityTwo extends AppCompatActivity
             Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        }  else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree4 (View view){
@@ -130,11 +132,11 @@ public class ActivityTwo extends AppCompatActivity
             }
         });
 
+        final ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton4);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton4);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -144,7 +146,9 @@ public class ActivityTwo extends AppCompatActivity
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
         if(name.equals("1")) {
-            alertDialog.show();
+                alertDialog.show();
+        }else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree9 (View view){
@@ -182,6 +186,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree8 (View view){
@@ -219,6 +225,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree10 (View view){
@@ -256,6 +264,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree13 (View view){
@@ -293,6 +303,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogfree16 (View view){
@@ -330,6 +342,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void btn_showdialogbusy (View view){
@@ -356,6 +370,8 @@ public class ActivityTwo extends AppCompatActivity
         Log.i("shared",name +"");
         if(name.equals("1")) {
             alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per poter prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -364,4 +380,4 @@ public class ActivityTwo extends AppCompatActivity
         public void onClick (View v){
 
     }
-    }
+}
