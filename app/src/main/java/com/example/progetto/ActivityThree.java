@@ -196,7 +196,7 @@ public class ActivityThree extends AppCompatActivity
         CharSequence colors[] = new CharSequence[]{"Modifica", "Cancella"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose option");
+        builder.setTitle("Scegli cosa fare");
         builder.setItems(colors, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
