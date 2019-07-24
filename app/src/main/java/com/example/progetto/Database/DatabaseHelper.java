@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.progetto.Database.Model.Note;
+import com.example.progetto.Database.Model.Umbrella;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,4 +145,66 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(note.getId())});
         db.close();
     }
+
+    public Umbrella getUmbrella(long id) {
+        // get readable database as we are not inserting anything
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(Umbrella.TABLE_NAME,
+                new String[]{Umbrella.COLUMN_ID, Umbrella.COLUMN_VALUE},
+                String.valueOf(new String[]{String.valueOf(id)}), null, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        // prepare umbrella object
+        Umbrella umbrella = new Umbrella(
+                cursor.getInt(cursor.getColumnIndex(Umbrella.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndex(Umbrella.COLUMN_VALUE)
+                ));
+        // close the db connection
+        cursor.close();
+
+        return umbrella;
+    }
+
+    public List<Umbrella> getAllUmbrella() {
+        List<Umbrella> umbrellas = new ArrayList<>();
+
+        // Select All Query
+        int selectQuery = Integer.parseInt("SELECT  * FROM " + Umbrella.TABLE_NAME + " ORDER BY " +
+                Umbrella.COLUMN_VALUE + " DESC");
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(String.valueOf(selectQuery), null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Umbrella umbrella = new Umbrella(cursor.getInt(cursor.getColumnIndex(Umbrella.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndex(Umbrella.COLUMN_VALUE)));
+                umbrellas.add(umbrella);
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return umbrellas;
+    }
+
+    public int updateUmbrella(Umbrella umbrella) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Umbrella.COLUMN_VALUE, umbrella.getUmbrella());
+
+        // updating row
+        return db.update(Umbrella.TABLE_NAME, values, Umbrella.COLUMN_VALUE + " = ?",
+                new String[]{String.valueOf(umbrella.getValue())});
+    }
+
+
+
 }

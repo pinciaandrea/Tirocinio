@@ -98,10 +98,13 @@ public class CustomDialogLogin extends Dialog implements View.OnClickListener {
                 Toast.makeText(this.context, "Utente loggato", Toast.LENGTH_LONG).show();
                 String login = json_string;
                 SharedPreferencesSAVE(login);
-            }else {
+            }
+            else {
                 Toast.makeText(this.context, "Utente non registrato", Toast.LENGTH_LONG).show();
             }
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
             e.printStackTrace();
         } finally {
             if (client != null) {
@@ -109,6 +112,7 @@ public class CustomDialogLogin extends Dialog implements View.OnClickListener {
             }
         }
     }
+
     public void SharedPreferencesSAVE(String Name){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.context);
         SharedPreferences.Editor editor = preferences.edit();

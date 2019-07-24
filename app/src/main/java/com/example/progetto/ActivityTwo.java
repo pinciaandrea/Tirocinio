@@ -18,8 +18,18 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.progetto.Database.DatabaseHelper;
+import com.example.progetto.Database.Model.Umbrella;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
+
+    private List<Umbrella> umbrellaList = new ArrayList<>();
+    private DatabaseHelper db;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,12 +78,16 @@ public class ActivityTwo extends AppCompatActivity
                 startActivity(intent5);
             }
         });
+
+        db = new DatabaseHelper(this);
+        umbrellaList.addAll(db.getAllUmbrella());
+
     }
 
         String json_string;
 
         //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
-        public void btn_showdialogfree3 (View view){
+        public void btn_showdialogfree3(View view, String umbrella){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -102,12 +116,12 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             String name = preferences.getString("Name","0");
             Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
+            db.updateUmbrella();
         } else {
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
@@ -141,7 +155,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
@@ -180,7 +194,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
@@ -219,7 +233,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
@@ -258,7 +272,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
@@ -297,7 +311,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
@@ -336,7 +350,7 @@ public class ActivityTwo extends AppCompatActivity
                 alertDialog.dismiss();
             }
         });
-        // funziona una volta per dispositivo
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
         Log.i("shared", name+" ");
