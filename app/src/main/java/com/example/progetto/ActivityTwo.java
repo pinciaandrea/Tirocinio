@@ -19,16 +19,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.progetto.Database.DatabaseHelper;
-import com.example.progetto.Database.Model.Umbrella;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
-
-    private List<Umbrella> umbrellaList = new ArrayList<>();
-    private DatabaseHelper db;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,8 +74,6 @@ public class ActivityTwo extends AppCompatActivity
         });
 
         db = new DatabaseHelper(this);
-        umbrellaList.addAll(db.getAllUmbrella());
-
     }
 
         String json_string;
@@ -121,7 +113,7 @@ public class ActivityTwo extends AppCompatActivity
             Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
-            db.updateUmbrella();
+
         } else {
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }

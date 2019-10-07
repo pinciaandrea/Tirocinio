@@ -1,6 +1,5 @@
 package com.example.progetto.Database.Model;
 
-
 public class Umbrella {
     public static final String TABLE_NAME = "umbrella";
     public static final String COLUMN_ID = "id";
@@ -8,7 +7,6 @@ public class Umbrella {
     //1 se libero, 0 se occupato
     private int idUmbrella;
     private boolean valueUmbrella;
-    private String umbrella;
 
     // Create table SQL query
     public static final String CREATE_TABLE =
@@ -18,7 +16,11 @@ public class Umbrella {
                     + ")"
                     ;
 
-    public Umbrella(int anInt, String string) {
+    public Umbrella (){
+
+    }
+
+    public Umbrella(int idUmbrella, boolean valueUmbrella) {
         this.idUmbrella = idUmbrella;
         this.valueUmbrella = valueUmbrella;
     }
@@ -37,14 +39,6 @@ public class Umbrella {
 
     public void setId(int idUmbrella) {
         this.idUmbrella = idUmbrella;
-    }
-
-    public String getUmbrella() {
-        return umbrella;
-    }
-
-    public void setUmbrella(String umbrella) {
-        this.umbrella = umbrella;
     }
 
 }

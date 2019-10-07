@@ -13,13 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-
     // Database Version
     private static final int DATABASE_VERSION = 1;
-
     // Database Name
     private static final String DATABASE_NAME = "notes_db";
-
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,6 +28,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // create notes table
         db.execSQL(Note.CREATE_TABLE);
+        db.execSQL(Umbrella.CREATE_TABLE);
+    }
+
+    public long insertUmbrella (String id, Boolean value){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("imageButton",false);
+        contentValues.put("imageButton2",false);
+        long result = db.insert(Umbrella.TABLE_NAME,null,contentValues);
+        db.close();
+        return result;
     }
 
     // Upgrading database
@@ -38,26 +46,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + Note.TABLE_NAME);
-
         // Create tables again
         onCreate(db);
     }
 
+
+
     public long insertNote(String note) {
         // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
         // `id` and `timestamp` will be inserted automatically.
         // no need to add them
         values.put(Note.COLUMN_NOTE, note);
-
         // insert row
         long id = db.insert(Note.TABLE_NAME, null, values);
-
         // close db connection
         db.close();
-
         // return newly inserted row id
         return id;
     }
@@ -146,65 +151,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Umbrella getUmbrella(long id) {
-        // get readable database as we are not inserting anything
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(Umbrella.TABLE_NAME,
-                new String[]{Umbrella.COLUMN_ID, Umbrella.COLUMN_VALUE},
-                String.valueOf(new String[]{String.valueOf(id)}), null, null, null, null);
-
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        // prepare umbrella object
-        Umbrella umbrella = new Umbrella(
-                cursor.getInt(cursor.getColumnIndex(Umbrella.COLUMN_ID)),
-                cursor.getString(cursor.getColumnIndex(Umbrella.COLUMN_VALUE)
-                ));
-        // close the db connection
-        cursor.close();
-
-        return umbrella;
+    public void open() {
     }
 
-    public List<Umbrella> getAllUmbrella() {
-        List<Umbrella> umbrellas = new ArrayList<>();
-
-        // Select All Query
-        int selectQuery = Integer.parseInt("SELECT  * FROM " + Umbrella.TABLE_NAME + " ORDER BY " +
-                Umbrella.COLUMN_VALUE + " DESC");
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(String.valueOf(selectQuery), null);
-
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                Umbrella umbrella = new Umbrella(cursor.getInt(cursor.getColumnIndex(Umbrella.COLUMN_ID)),
-                cursor.getString(cursor.getColumnIndex(Umbrella.COLUMN_VALUE)));
-                umbrellas.add(umbrella);
-            } while (cursor.moveToNext());
-        }
-
-        // close db connection
-        db.close();
-
-        // return notes list
-        return umbrellas;
+    public void insertData(String id) {
     }
-
-    public int updateUmbrella(Umbrella umbrella) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(Umbrella.COLUMN_VALUE, umbrella.getUmbrella());
-
-        // updating row
-        return db.update(Umbrella.TABLE_NAME, values, Umbrella.COLUMN_VALUE + " = ?",
-                new String[]{String.valueOf(umbrella.getValue())});
-    }
-
-
-
 }
