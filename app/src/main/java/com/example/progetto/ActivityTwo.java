@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.progetto.Database.DatabaseHelper;
+import com.example.progetto.Database.Model.Umbrella;
 
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
@@ -74,7 +75,16 @@ public class ActivityTwo extends AppCompatActivity
         });
 
         db = new DatabaseHelper(this);
+
+        public void SELECT_UMBRELLA =
+                "SELECT" + Umbrella.COLUMN_ID +
+                        "FROM" + Umbrella.class +
+                        "WHERE" + Umbrella.COLUMN_VALUE +
+                        "=" + "false"
+                        ;
+
     }
+
 
         String json_string;
 
@@ -106,6 +116,12 @@ public class ActivityTwo extends AppCompatActivity
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton3);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
+
+                public void UPDATE_UMBRELLA =
+                        "UPDATE" + Umbrella.class +
+                                "SET" + Umbrella.COLUMN_VALUE + "=" + "true" +
+                                "WHERE" + Umbrella.COLUMN_ID + "=" + "..." //connessione tra icona e id database
+                        ;
             }
         });
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);

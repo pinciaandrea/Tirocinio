@@ -31,15 +31,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(Umbrella.CREATE_TABLE);
     }
 
-    public long insertUmbrella (String id, Boolean value){
+    public long insertUmbrella (Integer id){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("imageButton",false);
-        contentValues.put("imageButton2",false);
+        contentValues.put(Umbrella.COLUMN_VALUE, false);
         long result = db.insert(Umbrella.TABLE_NAME,null,contentValues);
         db.close();
         return result;
     }
+
+    //query creazione db umbrella provvisorio
+    public static final String INSERT_TABLE =
+            "INSERT INTO" + Umbrella.TABLE_NAME + "VALUES" +
+                    "('0', 'false')," +
+                    "('1', 'false')," +
+                    "('2', 'false')," +
+                    "('3', 'false')," +
+                    "('4', 'false')," +
+                    "('5', 'false')," +
+                    "('6', 'false')," +
+                    "('7', 'false')," +
+                    "('8', 'false')," +
+                    "('9', 'false')," +
+                    "('10', 'false')," +
+                    "('11', 'false')," +
+                    "('12', 'false'),"
+            ;
 
     // Upgrading database
     @Override
