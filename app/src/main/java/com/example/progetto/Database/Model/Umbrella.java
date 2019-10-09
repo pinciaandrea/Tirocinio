@@ -4,7 +4,6 @@ public class Umbrella {
     public static final String TABLE_NAME = "umbrella";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_VALUE = "value";
-    //1 se libero, 0 se occupato
     private int idUmbrella;
     private boolean valueUmbrella;
 
@@ -15,15 +14,6 @@ public class Umbrella {
                     + COLUMN_VALUE + " INTEGER "
                     + ")"
                     ;
-
-    public Umbrella (){
-
-    }
-
-    public Umbrella(int idUmbrella, boolean valueUmbrella) {
-        this.idUmbrella = idUmbrella;
-        this.valueUmbrella = valueUmbrella;
-    }
 
     public int getId() {
         return idUmbrella;

@@ -21,9 +21,29 @@ import android.widget.Toast;
 import com.example.progetto.Database.DatabaseHelper;
 import com.example.progetto.Database.Model.Umbrella;
 
+import java.util.List;
+
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
     DatabaseHelper db;
+
+    private ImageButton img0;
+    private ImageButton img1;
+    private ImageButton img2;
+    private ImageButton img3;
+    private ImageButton img4;
+    private ImageButton img5;
+    private ImageButton img6;
+    private ImageButton img7;
+    private ImageButton img8;
+    private ImageButton img9;
+    private ImageButton img10;
+    private ImageButton img11;
+    private ImageButton img12;
+    private ImageButton img13;
+    private ImageButton img14;
+    private ImageButton img15;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +56,24 @@ public class ActivityTwo extends AppCompatActivity
                 view.setMinDate(System.currentTimeMillis() - 1000);
             }
         };
+
+        img0 = findViewById(R.id.imageButton);
+        img1 = findViewById(R.id.imageButton2);
+        img2 = findViewById(R.id.imageButton3);
+        img3 = findViewById(R.id.imageButton4);
+        img4 = findViewById(R.id.imageButton9);
+        img5 = findViewById(R.id.imageButton17);
+        img6 = findViewById(R.id.imageButton8);
+        img7 = findViewById(R.id.imageButton6);
+        img8 = findViewById(R.id.imageButton12);
+        img9 = findViewById(R.id.imageButton5);
+        img10 = findViewById(R.id.imageButton10);
+        img11 = findViewById(R.id.imageButton11);
+        img12 = findViewById(R.id.imageButton14);
+        img13 = findViewById(R.id.imageButton13);
+        img14 = findViewById(R.id.imageButton15);
+        img15 = findViewById(R.id.imageButton16);
+
 
         Button dataButton = (Button) findViewById(R.id.button4);
         dataButton.setOnClickListener(new View.OnClickListener() {
@@ -75,18 +113,46 @@ public class ActivityTwo extends AppCompatActivity
         });
 
         db = new DatabaseHelper(this);
+        db.InsertAllUmbrella();
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
 
-        public void SELECT_UMBRELLA =
-                "SELECT" + Umbrella.COLUMN_ID +
-                        "FROM" + Umbrella.class +
-                        "WHERE" + Umbrella.COLUMN_VALUE +
-                        "=" + "false"
-                        ;
+        //for (int i = 0 ; i < ombrelloni.size() ; i++) {
+            //Log.i("PROVA", "onCreate: "+ombrelloni.get(i).getPrenotato());
+            if(ombrelloni.get(0).getPrenotato()==0) img0.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(0).getPrenotato()==1) img0.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(1).getPrenotato()==0) img1.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(1).getPrenotato()==1) img1.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(2).getPrenotato()==0) img2.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(2).getPrenotato()==1) img2.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(3).getPrenotato()==0) img3.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(3).getPrenotato()==1) img3.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(4).getPrenotato()==0) img4.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(4).getPrenotato()==1) img4.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(5).getPrenotato()==0) img5.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(5).getPrenotato()==1) img5.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(6).getPrenotato()==0) img6.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(6).getPrenotato()==1) img6.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(7).getPrenotato()==0) img7.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(7).getPrenotato()==1) img7.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(8).getPrenotato()==0) img8.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(8).getPrenotato()==1) img8.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(9).getPrenotato()==0) img9.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(9).getPrenotato()==1) img9.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(10).getPrenotato()==0) img10.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(10).getPrenotato()==1) img10.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(11).getPrenotato()==0) img11.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(11).getPrenotato()==1) img11.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(12).getPrenotato()==0) img12.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(12).getPrenotato()==1) img12.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(13).getPrenotato()==0) img13.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(13).getPrenotato()==1) img13.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(14).getPrenotato()==0) img14.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(14).getPrenotato()==1) img14.setImageResource(R.drawable.umbrella_busy);
+            if(ombrelloni.get(15).getPrenotato()==0) img15.setImageResource(R.drawable.umbrella_free);
+            if(ombrelloni.get(15).getPrenotato()==1) img15.setImageResource(R.drawable.umbrella_busy);
+        //}
 
     }
-
-
-        String json_string;
 
         //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
         public void btn_showdialogfree3(View view, String umbrella){
@@ -117,11 +183,6 @@ public class ActivityTwo extends AppCompatActivity
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
 
-                public void UPDATE_UMBRELLA =
-                        "UPDATE" + Umbrella.class +
-                                "SET" + Umbrella.COLUMN_VALUE + "=" + "true" +
-                                "WHERE" + Umbrella.COLUMN_ID + "=" + "..." //connessione tra icona e id database
-                        ;
             }
         });
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -160,6 +221,10 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
+
+                Umbrella_obj umbrella = new Umbrella_obj(3,1);
+                db.updateUmbrella(umbrella);
+
                 alertDialog.dismiss();
             }
         });
@@ -238,6 +303,10 @@ public class ActivityTwo extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton8);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
+
+                Umbrella_obj umbrella = new Umbrella_obj(6,1);
+                db.updateUmbrella(umbrella);
+
                 alertDialog.dismiss();
             }
         });
