@@ -178,7 +178,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton3);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone2);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
 
@@ -214,7 +214,7 @@ public class ActivityTwo extends AppCompatActivity
             }
         });
 
-        final ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton4);
+        final ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone3);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -261,7 +261,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton9);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone5);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -300,7 +300,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton8);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone7);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
 
                 Umbrella_obj umbrella = new Umbrella_obj(6,1);
@@ -343,7 +343,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton10);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone11);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -382,7 +382,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton13);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone14);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -421,7 +421,7 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.imageButton16);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone16);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
