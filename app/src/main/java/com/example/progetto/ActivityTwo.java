@@ -19,7 +19,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.progetto.Database.DatabaseHelper;
-import com.example.progetto.Database.Model.Umbrella;
 
 import java.util.List;
 
@@ -57,22 +56,22 @@ public class ActivityTwo extends AppCompatActivity
             }
         };
 
-        img0 = findViewById(R.id.imageButton);
-        img1 = findViewById(R.id.imageButton2);
-        img2 = findViewById(R.id.imageButton3);
-        img3 = findViewById(R.id.imageButton4);
-        img4 = findViewById(R.id.imageButton9);
-        img5 = findViewById(R.id.imageButton17);
-        img6 = findViewById(R.id.imageButton8);
-        img7 = findViewById(R.id.imageButton6);
-        img8 = findViewById(R.id.imageButton12);
-        img9 = findViewById(R.id.imageButton5);
-        img10 = findViewById(R.id.imageButton10);
-        img11 = findViewById(R.id.imageButton11);
-        img12 = findViewById(R.id.imageButton14);
-        img13 = findViewById(R.id.imageButton13);
-        img14 = findViewById(R.id.imageButton15);
-        img15 = findViewById(R.id.imageButton16);
+        img0 = findViewById(R.id.ombrellone4);
+        img1 = findViewById(R.id.ombrellone1);
+        img2 = findViewById(R.id.ombrellone2);
+        img3 = findViewById(R.id.ombrellone3);
+        img4 = findViewById(R.id.ombrellone5);
+        img5 = findViewById(R.id.ombrellone6);
+        img6 = findViewById(R.id.ombrellone7);
+        img7 = findViewById(R.id.ombrellone8);
+        img8 = findViewById(R.id.ombrellone9);
+        img9 = findViewById(R.id.ombrellone10);
+        img10 = findViewById(R.id.ombrellone11);
+        img11 = findViewById(R.id.ombrellone12);
+        img12 = findViewById(R.id.ombrellone13);
+        img13 = findViewById(R.id.ombrellone14);
+        img14 = findViewById(R.id.ombrellone15);
+        img15 = findViewById(R.id.ombrellone16);
 
 
         Button dataButton = (Button) findViewById(R.id.button4);

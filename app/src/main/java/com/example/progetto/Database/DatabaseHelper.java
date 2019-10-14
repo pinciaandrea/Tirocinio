@@ -60,22 +60,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void InsertAllUmbrella(){
-        insertUmbrella(0, false);
-        insertUmbrella(1, false);
-        insertUmbrella(2, false);
-        insertUmbrella(3, false);
-        insertUmbrella(4, false);
-        insertUmbrella(5, false);
-        insertUmbrella(6, false);
-        insertUmbrella(7, false);
-        insertUmbrella(8, false);
-        insertUmbrella(9, false);
-        insertUmbrella(10, false);
-        insertUmbrella(11, false);
-        insertUmbrella(12, false);
-        insertUmbrella(13, false);
-        insertUmbrella(14, false);
-        insertUmbrella(15, false);
+        insertUmbrella(0, false); //ombrellone16
+        insertUmbrella(1, false); //ombrellone15
+        insertUmbrella(2, false); //ombrellone14
+        insertUmbrella(3, false); //ombrellone13
+        insertUmbrella(4, false);   //ombrellone12
+        insertUmbrella(5, false);   //ombrellone11
+        insertUmbrella(6, false);    //ombrellone10
+        insertUmbrella(7, false);    //ombrellone9
+        insertUmbrella(8, false);    //ombrellone8
+        insertUmbrella(9, false);    //ombrellone7
+        insertUmbrella(10, true);   //ombrellone6
+        insertUmbrella(11, false);  //ombrellone5
+        insertUmbrella(12, false);  //ombrellone3
+        insertUmbrella(13, true); //ombrellone1
+        insertUmbrella(14, true); //ombrellone2
+        insertUmbrella(15, true); //ombrellone4
 
 
     }
