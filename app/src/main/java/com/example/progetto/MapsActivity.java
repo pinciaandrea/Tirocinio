@@ -6,7 +6,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -29,13 +28,8 @@ protected void onCreate(Bundle savedInstanceState) {
 @Override
 public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        final LatLng firenze = new LatLng(43.776366, 11.247822);
-
+        LatLng firenze = new LatLng(33.785022, 72.721992);
         mMap.addMarker(new MarkerOptions().position(firenze).title("Siamo a Firenze!"));
-
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(firenze).zoom(15).build();
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(firenze));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(firenze,15));
         }
 }

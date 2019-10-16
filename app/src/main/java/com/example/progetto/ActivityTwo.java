@@ -24,6 +24,7 @@ import java.util.List;
 
 public class ActivityTwo extends AppCompatActivity
     implements View.OnClickListener {
+
     DatabaseHelper db;
 
     private ImageButton img0;
@@ -56,22 +57,23 @@ public class ActivityTwo extends AppCompatActivity
             }
         };
 
-        img0 = findViewById(R.id.ombrellone4);
+        img0 = findViewById(R.id.ombrellone0);
         img1 = findViewById(R.id.ombrellone1);
         img2 = findViewById(R.id.ombrellone2);
         img3 = findViewById(R.id.ombrellone3);
-        img4 = findViewById(R.id.ombrellone5);
-        img5 = findViewById(R.id.ombrellone6);
-        img6 = findViewById(R.id.ombrellone7);
-        img7 = findViewById(R.id.ombrellone8);
-        img8 = findViewById(R.id.ombrellone9);
-        img9 = findViewById(R.id.ombrellone10);
-        img10 = findViewById(R.id.ombrellone11);
-        img11 = findViewById(R.id.ombrellone12);
-        img12 = findViewById(R.id.ombrellone13);
-        img13 = findViewById(R.id.ombrellone14);
-        img14 = findViewById(R.id.ombrellone15);
-        img15 = findViewById(R.id.ombrellone16);
+        img4 = findViewById(R.id.ombrellone4);
+        img5 = findViewById(R.id.ombrellone5);
+        img6 = findViewById(R.id.ombrellone6);
+        img7 = findViewById(R.id.ombrellone7);
+        img8 = findViewById(R.id.ombrellone8);
+        img9 = findViewById(R.id.ombrellone9);
+        img10 = findViewById(R.id.ombrellone10);
+        img11 = findViewById(R.id.ombrellone11);
+        img12 = findViewById(R.id.ombrellone12);
+        img13 = findViewById(R.id.ombrellone13);
+        img14 = findViewById(R.id.ombrellone14);
+        img15 = findViewById(R.id.ombrellone15);
+
 
 
         Button dataButton = (Button) findViewById(R.id.button4);
@@ -115,8 +117,7 @@ public class ActivityTwo extends AppCompatActivity
         db.InsertAllUmbrella();
         List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
 
-        //for (int i = 0 ; i < ombrelloni.size() ; i++) {
-            //Log.i("PROVA", "onCreate: "+ombrelloni.get(i).getPrenotato());
+
             if(ombrelloni.get(0).getPrenotato()==0) img0.setImageResource(R.drawable.umbrella_free);
             if(ombrelloni.get(0).getPrenotato()==1) img0.setImageResource(R.drawable.umbrella_busy);
             if(ombrelloni.get(1).getPrenotato()==0) img1.setImageResource(R.drawable.umbrella_free);
@@ -149,12 +150,11 @@ public class ActivityTwo extends AppCompatActivity
             if(ombrelloni.get(14).getPrenotato()==1) img14.setImageResource(R.drawable.umbrella_busy);
             if(ombrelloni.get(15).getPrenotato()==0) img15.setImageResource(R.drawable.umbrella_free);
             if(ombrelloni.get(15).getPrenotato()==1) img15.setImageResource(R.drawable.umbrella_busy);
-        //}
 
     }
 
         //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
-        public void btn_showdialogfree3(View view, String umbrella){
+        public void libero2(View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -179,6 +179,10 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone2);
+
+                Umbrella_obj umbrella = new Umbrella_obj(13,1);
+                db.updateUmbrella(umbrella);
+
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
 
@@ -194,7 +198,7 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree4 (View view){
+        public void libero4 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -214,14 +218,14 @@ public class ActivityTwo extends AppCompatActivity
             }
         });
 
-        final ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone3);
+        final ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone4);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
 
-                Umbrella_obj umbrella = new Umbrella_obj(3,1);
+                Umbrella_obj umbrella = new Umbrella_obj(11,1);
                 db.updateUmbrella(umbrella);
 
                 alertDialog.dismiss();
@@ -237,7 +241,7 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree9 (View view){
+        public void libero5 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -262,6 +266,8 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone5);
+                Umbrella_obj umbrella = new Umbrella_obj(10,1);
+                db.updateUmbrella(umbrella);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -276,7 +282,48 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree8 (View view){
+        public void libero6 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone6);
+                Umbrella_obj umbrella = new Umbrella_obj(9,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+        public void libero7 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -301,11 +348,9 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone7);
-                imgToChange.setImageResource(R.drawable.umbrella_busy);
-
-                Umbrella_obj umbrella = new Umbrella_obj(6,1);
+                Umbrella_obj umbrella = new Umbrella_obj(8,1);
                 db.updateUmbrella(umbrella);
-
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
         });
@@ -319,7 +364,131 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree10 (View view){
+        public void libero8 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone8);
+                Umbrella_obj umbrella = new Umbrella_obj(7,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+        public void libero9 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone9);
+                Umbrella_obj umbrella = new Umbrella_obj(6,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void libero10 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone10);
+                Umbrella_obj umbrella = new Umbrella_obj(5,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void libero11 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -344,6 +513,8 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone11);
+                Umbrella_obj umbrella = new Umbrella_obj(4,1);
+                db.updateUmbrella(umbrella);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -358,7 +529,91 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree13 (View view){
+
+    public void libero12 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone12);
+                Umbrella_obj umbrella = new Umbrella_obj(3,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void libero13 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone13);
+                Umbrella_obj umbrella = new Umbrella_obj(2,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        Log.i("shared", name+" ");
+        if(name.equals("1")) {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void libero14 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -383,6 +638,8 @@ public class ActivityTwo extends AppCompatActivity
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone14);
+                Umbrella_obj umbrella = new Umbrella_obj(1,1);
+                db.updateUmbrella(umbrella);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -397,7 +654,8 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogfree16 (View view){
+
+    public void libero15 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -421,7 +679,9 @@ public class ActivityTwo extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone16);
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone15);
+                Umbrella_obj umbrella = new Umbrella_obj(0,1);
+                db.updateUmbrella(umbrella);
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
             }
@@ -436,7 +696,8 @@ public class ActivityTwo extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
-        public void btn_showdialogbusy (View view){
+
+        public void occupato (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.busyumbrelladialog, null);
