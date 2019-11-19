@@ -19,7 +19,6 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
     ViewPager viewPager;
     SlideAdapter adapter;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,7 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
         eatButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "MENU' DEL GIORNO con spaghetti alle vongole, rana pescatrice arrosto e pepata di cozze.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "MENU: Spaghetti alle vongole, Arrosto misto o Frittura, Dolce e caffe'.", Toast.LENGTH_LONG).show();
             }
         });
         showerButtonALert.setOnClickListener(new View.OnClickListener() {
@@ -75,9 +74,7 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
         });
 
             viewPager= findViewById(R.id.viewPager_id);
-
             adapter= new SlideAdapter(this);
-
             viewPager.setAdapter(adapter);
 
             Button bhome = findViewById(R.id.button);
@@ -88,7 +85,9 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
                     startActivity(intent4);
                 }
             });
+
         }
+
         @Override
         public void onClick(View v) { }
 

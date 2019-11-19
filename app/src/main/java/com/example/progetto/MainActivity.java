@@ -1,8 +1,10 @@
 package com.example.progetto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -28,13 +30,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        Login = findViewById(R.id.login);
-        aggiungiUtentePost = findViewById(R.id.aggiungi_utente_post);
-
-
-        Login.setOnClickListener(this);
-        aggiungiUtentePost.setOnClickListener(this);
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        if(name.equals("0")) {
+            Login = findViewById(R.id.login);
+            aggiungiUtentePost = findViewById(R.id.aggiungi_utente_post);
+            Login.setOnClickListener(this);
+            aggiungiUtentePost.setOnClickListener(this);
+        }
+        else{
+            findViewById(R.id.login).setVisibility(View.INVISIBLE);
+            findViewById(R.id.aggiungi_utente_post).setVisibility(View.INVISIBLE);
+        }
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

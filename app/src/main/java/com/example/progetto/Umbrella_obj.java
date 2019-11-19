@@ -2,7 +2,7 @@ package com.example.progetto;
 
 public class Umbrella_obj {
 
-    static int id;
+    int id;
     int prenotato;
 
     public Umbrella_obj() {

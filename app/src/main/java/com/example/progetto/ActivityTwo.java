@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -117,39 +116,38 @@ public class ActivityTwo extends AppCompatActivity
         db.InsertAllUmbrella();
         List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
 
-
-            if(ombrelloni.get(0).getPrenotato()==0) img0.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(0).getPrenotato()==1) img0.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(1).getPrenotato()==0) img1.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(1).getPrenotato()==1) img1.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(2).getPrenotato()==0) img2.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(2).getPrenotato()==1) img2.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(3).getPrenotato()==0) img3.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(3).getPrenotato()==1) img3.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(4).getPrenotato()==0) img4.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(4).getPrenotato()==1) img4.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(5).getPrenotato()==0) img5.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(5).getPrenotato()==1) img5.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(6).getPrenotato()==0) img6.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(6).getPrenotato()==1) img6.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(7).getPrenotato()==0) img7.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(7).getPrenotato()==1) img7.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(8).getPrenotato()==0) img8.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(8).getPrenotato()==1) img8.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(9).getPrenotato()==0) img9.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(9).getPrenotato()==1) img9.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(10).getPrenotato()==0) img10.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(10).getPrenotato()==1) img10.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(11).getPrenotato()==0) img11.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(11).getPrenotato()==1) img11.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(12).getPrenotato()==0) img12.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(12).getPrenotato()==1) img12.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(13).getPrenotato()==0) img13.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(13).getPrenotato()==1) img13.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(14).getPrenotato()==0) img14.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(14).getPrenotato()==1) img14.setImageResource(R.drawable.umbrella_busy);
-            if(ombrelloni.get(15).getPrenotato()==0) img15.setImageResource(R.drawable.umbrella_free);
-            if(ombrelloni.get(15).getPrenotato()==1) img15.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(0).getPrenotato()==0) img0.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(0).getPrenotato()==1) img0.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(1).getPrenotato()==0) img1.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(1).getPrenotato()==1) img1.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(2).getPrenotato()==0) img2.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(2).getPrenotato()==1) img2.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(3).getPrenotato()==0) img3.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(3).getPrenotato()==1) img3.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(4).getPrenotato()==0) img4.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(4).getPrenotato()==1) img4.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(5).getPrenotato()==0) img5.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(5).getPrenotato()==1) img5.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(6).getPrenotato()==0) img6.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(6).getPrenotato()==1) img6.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(7).getPrenotato()==0) img7.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(7).getPrenotato()==1) img7.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(8).getPrenotato()==0) img8.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(8).getPrenotato()==1) img8.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(9).getPrenotato()==0) img9.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(9).getPrenotato()==1) img9.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(10).getPrenotato()==0) img10.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(10).getPrenotato()==1) img10.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(11).getPrenotato()==0) img11.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(11).getPrenotato()==1) img11.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(12).getPrenotato()==0) img12.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(12).getPrenotato()==1) img12.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(13).getPrenotato()==0) img13.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(13).getPrenotato()==1) img13.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(14).getPrenotato()==0) img14.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(14).getPrenotato()==1) img14.setImageResource(R.drawable.umbrella_busy);
+        if(ombrelloni.get(15).getPrenotato()==0) img15.setImageResource(R.drawable.umbrella_free);
+        if(ombrelloni.get(15).getPrenotato()==1) img15.setImageResource(R.drawable.umbrella_busy);
 
     }
 
@@ -188,9 +186,9 @@ public class ActivityTwo extends AppCompatActivity
 
             }
         });
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-            String name = preferences.getString("Name","0");
-            Log.i("shared", name+" ");
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
         if(name.equals("1")) {
             alertDialog.show();
 
@@ -205,12 +203,10 @@ public class ActivityTwo extends AppCompatActivity
 
         Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
         Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
-
         alert.setView(mView);
 
         final AlertDialog alertDialog = alert.create();
         alertDialog.setCanceledOnTouchOutside(false);
-
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,7 +230,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1"))  {
                 alertDialog.show();
         } else {
@@ -275,7 +270,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -316,7 +310,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -357,7 +350,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -398,7 +390,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -439,7 +430,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -481,7 +471,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -522,7 +511,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -564,7 +552,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -606,7 +593,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -647,7 +633,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -689,7 +674,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             alertDialog.show();
         } else {
@@ -718,7 +702,6 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared",name +"");
         if(name.equals("1")) {
             alertDialog.show();
         } else {

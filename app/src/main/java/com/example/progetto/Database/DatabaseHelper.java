@@ -30,32 +30,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // create notes table
         db.execSQL(Note.CREATE_TABLE);
         db.execSQL(Umbrella.CREATE_TABLE);
-        //mettere insert
     }
 
     // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table if existed
+
         db.execSQL("DROP TABLE IF EXISTS " + Note.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Umbrella.TABLE_NAME);
-        // Create tables again
+
         onCreate(db);
     }
 
 
     public long insertUmbrella(int id, boolean prenotato) {
-        // get writable database as we want to write data
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Umbrella.COLUMN_ID, id);
         values.put(Umbrella.COLUMN_VALUE, prenotato);
-
-        // insert row
         long tk = db.insert(Umbrella.TABLE_NAME, null, values);
-        // close db connection
         db.close();
-        // return newly inserted row id
         return tk;
     }
 
@@ -81,11 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public long insertNote(String note) {
-        // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        // `id` and `timestamp` will be inserted automatically.
-        // no need to add them
         values.put(Note.COLUMN_NOTE, note);
         // insert row
         long id = db.insert(Note.TABLE_NAME, null, values);
@@ -98,7 +90,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Note getNote(long id) {
         // get readable database as we are not inserting anything
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.query(Note.TABLE_NAME,
                 new String[]{Note.COLUMN_ID, Note.COLUMN_NOTE, Note.COLUMN_TIMESTAMP},
                 Note.COLUMN_ID + "=?",
@@ -112,8 +103,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndex(Note.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndex(Note.COLUMN_NOTE)),
                 cursor.getString(cursor.getColumnIndex(Note.COLUMN_TIMESTAMP)));
-
-        // close the db connection
         cursor.close();
 
         return note;
@@ -121,14 +110,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Note> getAllNotes() {
         List<Note> notes = new ArrayList<>();
-
         // Select All Query
         String selectQuery = "SELECT  * FROM " + Note.TABLE_NAME + " ORDER BY " +
                 Note.COLUMN_TIMESTAMP + " DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -143,21 +130,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // close db connection
         db.close();
-
         // return notes list
         return notes;
     }
 
     public List<Umbrella_obj> getAllUmbrella() {
         List<Umbrella_obj> umbrellas = new ArrayList<>();
-
         // Select All Query
         String selectQuery = "SELECT  * FROM " + Umbrella.TABLE_NAME + " ORDER BY " +
                 Umbrella.COLUMN_ID + " DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -171,7 +155,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // close db connection
         db.close();
-
         // return notes list
         return umbrellas;
     }
@@ -183,8 +166,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = cursor.getCount();
         cursor.close();
-
-
         // return count
         return count;
     }
@@ -218,9 +199,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void open() {
-    }
-
-    public void insertData(String id) {
-    }
 }

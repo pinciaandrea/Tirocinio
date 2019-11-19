@@ -18,15 +18,6 @@ public class Umbrella {
     public int getId() {
         return idUmbrella;
     }
-
-    public boolean getValue() {
-        return valueUmbrella;
-    }
-
-    public void setValue(boolean valueUmbrella) {
-        this.valueUmbrella = valueUmbrella;
-    }
-
     public void setId(int idUmbrella) {
         this.idUmbrella = idUmbrella;
     }

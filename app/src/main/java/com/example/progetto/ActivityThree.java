@@ -17,7 +17,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,13 +84,12 @@ public class ActivityThree extends AppCompatActivity
         noNotesView = findViewById(R.id.empty_notes_view);
 
         db = new DatabaseHelper(this);
-
         notesList.addAll(db.getAllNotes());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        Log.i("shared", name+" ");
         if(name.equals("1")) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -138,17 +136,14 @@ public class ActivityThree extends AppCompatActivity
         // inserting note in db and getting
         // newly inserted note id
         long id = db.insertNote(note);
-
         // get the newly inserted note from db
         Note n = db.getNote(id);
 
         if (n != null) {
             // adding new note to array list at 0 position
             notesList.add(0, n);
-
             // refreshing the list
             mAdapter.notifyDataSetChanged();
-
             toggleEmptyNotes();
         }
     }
@@ -161,14 +156,11 @@ public class ActivityThree extends AppCompatActivity
         Note n = notesList.get(position);
         // updating note text
         n.setNote(note);
-
         // updating note in db
         db.updateNote(n);
-
         // refreshing the list
         notesList.set(position, n);
         mAdapter.notifyItemChanged(position);
-
         toggleEmptyNotes();
     }
 
@@ -179,11 +171,9 @@ public class ActivityThree extends AppCompatActivity
     private void deleteNote(int position) {
         // deleting the note from db
         db.deleteNote(notesList.get(position));
-
         // removing the note from the list
         notesList.remove(position);
         mAdapter.notifyItemRemoved(position);
-
         toggleEmptyNotes();
     }
 
