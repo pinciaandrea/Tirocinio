@@ -69,7 +69,7 @@
             android:layout_marginStart="33dp"
             android:layout_marginBottom="71dp"
             android:contentDescription="wifi"
-            app:srcCompat="@mipmap/wifi" />
+            app:srcCompat="@mipmap/wifi1" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -80,7 +80,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginBottom="71dp"
             android:contentDescription="park"
-            app:srcCompat="@mipmap/park" />
+            app:srcCompat="@mipmap/park1" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -91,7 +91,7 @@
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="71dp"
             android:contentDescription="restaurant"
-            app:srcCompat="@mipmap/menu" />
+            app:srcCompat="@mipmap/menu1" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -102,7 +102,7 @@
             android:layout_marginEnd="33dp"
             android:layout_marginBottom="71dp"
             android:contentDescription="shower"
-            app:srcCompat="@mipmap/doccia" />
+            app:srcCompat="@mipmap/doccia1" />
 
         <ImageView
             android:id="@+id/papete_location"
