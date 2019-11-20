@@ -28,12 +28,14 @@
 
         <Button
             android:id="@+id/button2"
+            android:background="@color/colorAccent"
             style="@android:style/Widget.Material.Light.Button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:text="Home"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
