@@ -3,7 +3,6 @@ package com.example.progetto;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.RequiresPermission;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,7 +60,11 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
                 username = editText_username.getText().toString();
                 password = editText_password.getText().toString();
                 email = editText_email.getText().toString();
-                make_request();
+                if(username.matches("[a-zA-Z0-9]") || password.matches("[a-zA-Z0-9]")){
+                    make_request();
+                }else {
+                    Toast.makeText(context, "Alcuni caratteri non sono permessi", Toast.LENGTH_SHORT).show();
+                }
                 dismiss();
                 break;
 
