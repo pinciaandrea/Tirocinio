@@ -58,11 +58,12 @@ public class CustomDialogLogin extends Dialog implements View.OnClickListener {
             case R.id.dialog_conferma:
                 username = editText_username.getText().toString();
                 password = editText_password.getText().toString();
-                if(username.matches("[a-zA-Z0-9]") || password.matches("[a-zA-Z0-9]")){
-                    make_request();
-                }else {
+                if(username.contains("=") || password.contains("=")){
                     Toast.makeText(context, "Alcuni caratteri non sono permessi", Toast.LENGTH_SHORT).show();
-                }
+                }else
+                    {
+                        make_request();
+                    }
                 dismiss();
                 break;
 
