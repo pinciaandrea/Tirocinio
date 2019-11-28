@@ -21,19 +21,25 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_three" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_three" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|right"
+        android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/fab_margin"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|top"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -50,7 +56,6 @@
 
         <Button
             android:id="@+id/button3"
-            android:background="@color/colorAccent"
             style="@android:style/Widget.Material.Light.Button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -60,9 +65,10 @@
             android:layout_marginTop="593dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="42dp"
+            android:background="@color/colorAccent"
             android:text="Home"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"

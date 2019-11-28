@@ -175,7 +175,8 @@ public class ActivityTwo extends AppCompatActivity
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la" +
+                        " tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
                 ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone2);
 
                 Umbrella_obj umbrella = new Umbrella_obj(13,1);
@@ -193,7 +194,8 @@ public class ActivityTwo extends AppCompatActivity
             alertDialog.show();
 
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare " +
+                    "un ombrellone!!", Toast.LENGTH_LONG).show();
         }
     }
         public void libero4 (View view){
