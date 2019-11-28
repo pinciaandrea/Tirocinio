@@ -97,6 +97,9 @@ public class ActivityThree extends AppCompatActivity
                     showNoteDialog(null, -1);
                 }
             });
+        } else {
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per inserire " +
+                    "una recensione!", Toast.LENGTH_LONG).show();
         }
 
 
