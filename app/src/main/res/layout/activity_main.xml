@@ -64,7 +64,7 @@
             android:allowUndo="false"
             android:autoLink="none"
             android:background="@drawable/roundedbutton"
-            android:text="Registrati"
+            android:text="Registrati / Accedi"
             android:textColor="@color/white"
 
             />

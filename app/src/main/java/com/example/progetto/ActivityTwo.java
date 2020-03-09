@@ -2,47 +2,38 @@ package com.example.progetto;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.progetto.Database.DatabaseHelper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ActivityTwo extends AppCompatActivity
-    implements View.OnClickListener {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-    DatabaseHelper db;
+public class ActivityTwo extends AppCompatActivity {
 
-    private ImageButton img0;
-    private ImageButton img1;
-    private ImageButton img2;
-    private ImageButton img3;
-    private ImageButton img4;
-    private ImageButton img5;
-    private ImageButton img6;
-    private ImageButton img7;
-    private ImageButton img8;
-    private ImageButton img9;
-    private ImageButton img10;
-    private ImageButton img11;
-    private ImageButton img12;
-    private ImageButton img13;
-    private ImageButton img14;
-    private ImageButton img15;
+    private RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerViewAdapter recyclerViewAdapter;
+    int []arr = {R.drawable.umbrella_free};
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    Map<String, Object> user = new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,24 +47,11 @@ public class ActivityTwo extends AppCompatActivity
             }
         };
 
-        img0 = findViewById(R.id.ombrellone0);
-        img1 = findViewById(R.id.ombrellone1);
-        img2 = findViewById(R.id.ombrellone2);
-        img3 = findViewById(R.id.ombrellone3);
-        img4 = findViewById(R.id.ombrellone4);
-        img5 = findViewById(R.id.ombrellone5);
-        img6 = findViewById(R.id.ombrellone6);
-        img7 = findViewById(R.id.ombrellone7);
-        img8 = findViewById(R.id.ombrellone8);
-        img9 = findViewById(R.id.ombrellone9);
-        img10 = findViewById(R.id.ombrellone10);
-        img11 = findViewById(R.id.ombrellone11);
-        img12 = findViewById(R.id.ombrellone12);
-        img13 = findViewById(R.id.ombrellone13);
-        img14 = findViewById(R.id.ombrellone14);
-        img15 = findViewById(R.id.ombrellone15);
-
-
+        recyclerView = findViewById(R.id.viewRecycler);
+        layoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerViewAdapter= new RecyclerViewAdapter(arr);
+        recyclerView.setAdapter( recyclerViewAdapter);
 
         Button dataButton = (Button) findViewById(R.id.button4);
         dataButton.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +89,22 @@ public class ActivityTwo extends AppCompatActivity
                 startActivity(intent5);
             }
         });
+        //riempie recycler view, mentre il colore lo decido nell'adapter della recyclerview
+        db.collection("Ombrelloni").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
+                        
+                    }
+                }
+            }
+        });
+        }
 
+
+
+        /*
         db = new DatabaseHelper(this);
         db.InsertAllUmbrella();
         List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
@@ -864,9 +857,6 @@ public class ActivityTwo extends AppCompatActivity
 
 
 
+*/
 
-        @Override
-        public void onClick (View v){
-
-    }
 }
