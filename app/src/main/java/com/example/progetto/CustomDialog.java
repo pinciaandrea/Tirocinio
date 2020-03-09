@@ -60,9 +60,11 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
                 username = editText_username.getText().toString();
                 password = editText_password.getText().toString();
                 email = editText_email.getText().toString();
-                if(username.contains("=") || password.contains("=")){
+                if(username.contains("=") || username.contains("'")|| password.contains("=") || password.contains("'") || email.contains("'") || email.contains("=")){
                     Toast.makeText(context, "Alcuni caratteri non sono permessi", Toast.LENGTH_SHORT).show();
-                }else {
+                }else if(!email.contains("@")){
+                    Toast.makeText(context,"Non è stato inserito un indirizzo email valido",Toast.LENGTH_SHORT).show();
+                } else{
                     make_request();
                 }
                 dismiss();

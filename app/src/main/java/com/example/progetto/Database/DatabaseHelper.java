@@ -61,10 +61,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertUmbrella(9, false); //ombrellone6
         insertUmbrella(10, false); //ombrellone5
         insertUmbrella(11, false);  //ombrellone4
-        insertUmbrella(12, true);  //ombrellone3
+        insertUmbrella(12, false);  //ombrellone3
         insertUmbrella(13, false); //ombrellone2
-        insertUmbrella(14, true); //ombrellone1
-        insertUmbrella(15, true); //ombrellone0
+        insertUmbrella(14, false); //ombrellone1
+        insertUmbrella(15, false); //ombrellone0
 
 
     }

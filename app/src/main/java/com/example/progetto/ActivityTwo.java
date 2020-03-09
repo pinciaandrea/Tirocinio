@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -151,8 +151,7 @@ public class ActivityTwo extends AppCompatActivity
 
     }
 
-        //https://www.youtube.com/watch?v=Y_G8HX2NEXs&frags=pl%2Cwn
-        public void libero2(View view){
+    public void libero0 (View view){
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
         View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
@@ -175,27 +174,159 @@ public class ActivityTwo extends AppCompatActivity
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la" +
-                        " tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
-                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone2);
-
-                Umbrella_obj umbrella = new Umbrella_obj(13,1);
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone0);
+                Umbrella_obj umbrella = new Umbrella_obj(15,1);
                 db.updateUmbrella(umbrella);
-
                 imgToChange.setImageResource(R.drawable.umbrella_busy);
                 alertDialog.dismiss();
-
             }
         });
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(0).getPrenotato() == 0)  {
             alertDialog.show();
-
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare " +
-                    "un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void libero1 (View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone1);
+                Umbrella_obj umbrella = new Umbrella_obj(14,1);
+                db.updateUmbrella(umbrella);
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(1).getPrenotato() == 0)  {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+        public void libero2(View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        final ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone2);
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+
+                Umbrella_obj umbrella = new Umbrella_obj(13,1);
+                db.updateUmbrella(umbrella);
+
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(2).getPrenotato() == 0)  {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void libero3(View view){
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
+        View mView = getLayoutInflater().inflate(R.layout.freeumbrelladialog, null);
+
+        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
+        Button btn_confirm = (Button) mView.findViewById(R.id.btn_confirm);
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        final ImageButton imgToChange = (ImageButton) findViewById(R.id.ombrellone3);
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "PRENOTAZIONE EFFETTUATA. Controlla la tua mail per tutti i dettagli", Toast.LENGTH_LONG).show();
+                imgToChange.setImageResource(R.drawable.umbrella_busy);
+
+                Umbrella_obj umbrella = new Umbrella_obj(12,1);
+                db.updateUmbrella(umbrella);
+
+                alertDialog.dismiss();
+            }
+        });
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = preferences.getString("Name","0");
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(3).getPrenotato() == 0)  {
+            alertDialog.show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
         public void libero4 (View view){
@@ -232,11 +363,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1"))  {
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(4).getPrenotato() == 0)  {
                 alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
         public void libero5 (View view){
 
@@ -272,11 +407,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(5).getPrenotato() == 0)  {
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
         public void libero6 (View view){
 
@@ -312,11 +451,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(6).getPrenotato() == 0)  {
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
         public void libero7 (View view){
 
@@ -352,11 +495,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(7).getPrenotato() == 0)  {
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
         public void libero8 (View view){
 
@@ -392,11 +539,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(8).getPrenotato() == 0)  {
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
         public void libero9 (View view){
 
@@ -432,11 +583,15 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
+            List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+            if(name.equals("0")){
+                Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            }
+            else if(name.equals("1") && ombrelloni.get(9).getPrenotato() == 0)  {
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
+            }
     }
 
     public void libero10 (View view){
@@ -473,10 +628,14 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(10).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
     public void libero11 (View view){
@@ -513,10 +672,14 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(11).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -554,10 +717,14 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(12).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -595,10 +762,14 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(13).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
     public void libero14 (View view){
@@ -635,10 +806,14 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(14).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -676,40 +851,18 @@ public class ActivityTwo extends AppCompatActivity
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        List<Umbrella_obj> ombrelloni = db.getAllUmbrella();
+        if(name.equals("0")){
+            Toast.makeText(getApplicationContext(), "Devi effettuare il login pre prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+        }
+        else if(name.equals("1") && ombrelloni.get(15).getPrenotato() == 0)  {
             alertDialog.show();
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ombrellone già prenotato!!", Toast.LENGTH_LONG).show();
         }
     }
 
-        public void occupato (View view){
 
-        final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityTwo.this);
-        View mView = getLayoutInflater().inflate(R.layout.busyumbrelladialog, null);
-
-        Button btn_cancel = (Button) mView.findViewById(R.id.btn_cancel);
-
-        alert.setView(mView);
-
-        final AlertDialog alertDialog = alert.create();
-        alertDialog.setCanceledOnTouchOutside(false);
-
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
-            alertDialog.show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per poter prenotare un ombrellone!!", Toast.LENGTH_LONG).show();
-        }
-    }
 
 
         @Override

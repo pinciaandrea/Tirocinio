@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+      >
         <activity android:name="com.example.progetto.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -30,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.example.progetto.ActivityOne"></activity>
         <activity android:name="com.example.progetto.ActivityTwo"></activity>
         <activity android:name="com.example.progetto.ActivityThree"></activity>

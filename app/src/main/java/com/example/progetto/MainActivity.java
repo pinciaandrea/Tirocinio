@@ -1,47 +1,80 @@
 package com.example.progetto;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import org.json.JSONObject;
+import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button Login;
+    private static final int MY_REQUEST_CODE = 1234;
     private Button aggiungiUtentePost;
-    private CustomDialog customDialog;
-    private CustomDialogLogin customDialogLogin;
+
+    private FirebaseAuth mAuth;
+
+    List<AuthUI.IdpConfig> providers;
+    Button btn_sign_out;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        btn_sign_out = (Button) findViewById(R.id.btn_sign_out);
+        btn_sign_out.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                AuthUI.getInstance()
+                        .signOut(MainActivity.this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                btn_sign_out.setEnabled(false);
+                                showSignInOptions();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MainActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
+        providers = Arrays.asList(
+                new AuthUI.IdpConfig.EmailBuilder().build(),
+                new AuthUI.IdpConfig.GoogleBuilder().build()
+        );
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = preferences.getString("Name","0");
-        if(name.equals("0")) {
-            Login = findViewById(R.id.login);
-            aggiungiUtentePost = findViewById(R.id.aggiungi_utente_post);
-            Login.setOnClickListener(this);
-            aggiungiUtentePost.setOnClickListener(this);
-        }
-        else{
-            findViewById(R.id.login).setVisibility(View.INVISIBLE);
-            findViewById(R.id.aggiungi_utente_post).setVisibility(View.INVISIBLE);
-        }
+        aggiungiUtentePost = findViewById(R.id.aggiungi_utente_post);
+        aggiungiUtentePost.setOnClickListener(this);
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,32 +100,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-    private JSONObject convert2JSON(String json_data) {
-        JSONObject obj = null;
-        try {
-            obj = new JSONObject(json_data);
-            Log.d("My App", obj.toString());
-        } catch (Throwable t) {
-            Log.e("My App", "Could not parse malformed JSON: \"" + json_data + "\"");
-        }
-        return obj;
+    private void showSignInOptions() {
+        startActivityForResult(
+                AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setTheme(R.style.MyTheme)
+                .build(), MY_REQUEST_CODE
+        );
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.login:
-                customDialogLogin = new CustomDialogLogin(this, true);
-                customDialogLogin.show();
-                break;
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == MY_REQUEST_CODE)
+        {
+            IdpResponse response = IdpResponse.fromResultIntent(data);
+            if(resultCode == RESULT_OK)
+            {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                Toast.makeText(this,""+user.getEmail(),Toast.LENGTH_SHORT).show();
+                btn_sign_out.setEnabled(true);
+                aggiungiUtentePost.setVisibility(View.GONE);
+            } else 
+                {
+                    Intent intent4 = new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(intent4);
+                    //Toast.makeText(this, ""+response.getError().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+        }
+    }
 
-            case R.id.aggiungi_utente_post:
-                customDialog = new CustomDialog(this, false);
-                customDialog.show();
-                break;
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    public void  updateUI(FirebaseUser account){
+        if(account != null){
+            Toast.makeText(this,"Hai effettuato l'accesso correttamente",Toast.LENGTH_SHORT).show();
+            aggiungiUtentePost.setVisibility(View.GONE);
+            btn_sign_out.setEnabled(true);
+        }else {
+            Toast.makeText(this,"Non hai ancora effettuato l'accesso",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+            aggiungiUtentePost = (Button)  findViewById(R.id.aggiungi_utente_post);
+            showSignInOptions();
         }
 
-
-    }
 }
