@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.Database.Model.Umbrella;
-import com.example.progetto.Umbrella_obj;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return notes;
     }
-
+/*
     public List<Umbrella_obj> getAllUmbrella() {
         List<Umbrella_obj> umbrellas = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + Umbrella.TABLE_NAME + " ORDER BY " +
@@ -139,7 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return umbrellas;
     }
-
+*/
     public int getNotesCount() {
         String countQuery = "SELECT  * FROM " + Note.TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -149,7 +148,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return count;
     }
-
+/*
     public int updateUmbrella(Umbrella_obj umbrella) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -159,7 +158,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update(Umbrella.TABLE_NAME, values, Umbrella.COLUMN_ID + " = ?",
                 new String[]{String.valueOf(umbrella.getId())});
     }
-
+*/
     public int updateNote(Note note) {
         SQLiteDatabase db = this.getWritableDatabase();
 

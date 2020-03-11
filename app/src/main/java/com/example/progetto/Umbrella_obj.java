@@ -2,30 +2,14 @@ package com.example.progetto;
 
 public class Umbrella_obj {
 
-    int id;
-    int prenotato;
+    boolean prenotato;
 
-    public Umbrella_obj() {
-    }
-
-    public Umbrella_obj(int id, int prenotato) {
-        this.id = id;
+    public Umbrella_obj(boolean prenotato) {
         this.prenotato = prenotato;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPrenotato() {
+    public boolean getPrenotato() {
         return prenotato;
     }
 
-    public void setPrenotato(int prenotato) {
-        this.prenotato = prenotato;
-    }
 }

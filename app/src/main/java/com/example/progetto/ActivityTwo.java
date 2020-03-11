@@ -3,6 +3,7 @@ package com.example.progetto;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,14 +27,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ActivityTwo extends AppCompatActivity {
 
+    private List<Umbrella_obj> umbrellalist = new ArrayList<>();
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter recyclerViewAdapter;
-    int []arr = {R.drawable.umbrella_free};
+
+    //int []arr = {R.drawable.umbrella_free};
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    Map<String, Object> user = new HashMap<>();
+    //Map<String, Object> user = new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,8 +53,10 @@ public class ActivityTwo extends AppCompatActivity {
         recyclerView = findViewById(R.id.viewRecycler);
         layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerViewAdapter= new RecyclerViewAdapter(arr);
+        recyclerViewAdapter= new RecyclerViewAdapter(this,umbrellalist);
         recyclerView.setAdapter( recyclerViewAdapter);
+        umbrellalist = new ArrayList<>();
+        LoadDataFromFirestore();
 
         Button dataButton = (Button) findViewById(R.id.button4);
         dataButton.setOnClickListener(new View.OnClickListener() {
@@ -89,18 +94,24 @@ public class ActivityTwo extends AppCompatActivity {
                 startActivity(intent5);
             }
         });
+
         //riempie recycler view, mentre il colore lo decido nell'adapter della recyclerview
+    }
+
+    private void LoadDataFromFirestore() {
         db.collection("Ombrelloni").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document : task.getResult()){
-                        
-                    }
+                for(QueryDocumentSnapshot querySnapshot : task.getResult()){
+                    Log.d("id",querySnapshot.getId());
+                    Umbrella_obj umbrella_obj = new Umbrella_obj(querySnapshot.getBoolean("prenotato"));
+                    umbrellalist.add(umbrella_obj);
                 }
+                recyclerViewAdapter = new RecyclerViewAdapter(ActivityTwo.this,umbrellalist);
+                recyclerView.setAdapter(recyclerViewAdapter);
             }
         });
-        }
+    }
 
 
 
