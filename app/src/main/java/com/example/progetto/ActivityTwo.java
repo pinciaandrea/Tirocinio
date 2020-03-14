@@ -1,13 +1,11 @@
 package com.example.progetto;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,41 +30,22 @@ public class ActivityTwo extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter recyclerViewAdapter;
 
-    //int []arr = {R.drawable.umbrella_free};
-
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    //Map<String, Object> user = new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
 
-        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                view.setMinDate(System.currentTimeMillis() - 1000);
-            }
-        };
-
         recyclerView = findViewById(R.id.viewRecycler);
-        layoutManager = new GridLayoutManager(this,2);
+        layoutManager = new GridLayoutManager(this,4);
         recyclerView.setLayoutManager(layoutManager);
+        SpacingItemDecorator itemDecorator = new SpacingItemDecorator(5);
         recyclerViewAdapter= new RecyclerViewAdapter(this,umbrellalist);
         recyclerView.setAdapter( recyclerViewAdapter);
         umbrellalist = new ArrayList<>();
+        recyclerView.addItemDecoration(itemDecorator);
         LoadDataFromFirestore();
-
-        Button dataButton = (Button) findViewById(R.id.button4);
-        dataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog mDate = new DatePickerDialog(ActivityTwo.this, date, 2019, 4, 22);
-                mDate.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-                mDate.show();
-            }
-        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
