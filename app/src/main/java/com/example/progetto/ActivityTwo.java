@@ -74,7 +74,6 @@ public class ActivityTwo extends AppCompatActivity {
             }
         });
 
-        //riempie recycler view, mentre il colore lo decido nell'adapter della recyclerview
     }
 
     private void LoadDataFromFirestore() {
@@ -83,7 +82,7 @@ public class ActivityTwo extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 for(QueryDocumentSnapshot querySnapshot : task.getResult()){
                     Log.d("id",querySnapshot.getId());
-                    Umbrella_obj umbrella_obj = new Umbrella_obj(querySnapshot.getBoolean("prenotato"));
+                    Umbrella_obj umbrella_obj = new Umbrella_obj(querySnapshot.getBoolean("prenotato"),querySnapshot.getId());
                     umbrellalist.add(umbrella_obj);
                 }
                 recyclerViewAdapter = new RecyclerViewAdapter(ActivityTwo.this,umbrellalist);
@@ -91,6 +90,7 @@ public class ActivityTwo extends AppCompatActivity {
             }
         });
     }
+
 
 
 

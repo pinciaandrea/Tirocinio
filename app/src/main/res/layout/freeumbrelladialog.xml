@@ -12,16 +12,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Conferma prenotazione"
+        android:text="CONFERMA PRENOTAZIONE"
         android:textAlignment="center"
         android:textColor="#0DBF3B"
-        android:textSize="50dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vuoi procedere con la prenotazione del tuo ombrellone nelle date da te precedentemente scelte ?"
+        android:text="Vuoi procedere con la prenotazione del tuo ombrellone ?"
         android:textSize="25dp"
         android:textStyle="italic"/>
 
