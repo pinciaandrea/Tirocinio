@@ -19,6 +19,16 @@
         android:textSize="@dimen/lbl_new_note_title"
         android:textStyle="normal" />
 
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:progressTint="@color/ratingbar"
+        android:progressBackgroundTint="@color/ratingbarvuota"
+        android:id="@+id/rating_bar"
+        />
+
     <EditText
         android:id="@+id/note"
         android:layout_width="match_parent"

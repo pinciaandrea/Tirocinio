@@ -2,7 +2,6 @@ package com.example.progetto.Utils;
 
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> {
 
@@ -57,9 +58,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 
         // Displaying dot from HTML character code
         holder.dot.setText(Html.fromHtml("&#8226;"));
-
-        // Formatting and displaying timestamp
-        holder.timestamp.setText(formatDate(note.getTimestamp()));
     }
 
     @Override

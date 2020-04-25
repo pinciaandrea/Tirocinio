@@ -8,4 +8,6 @@
     <color name="hint_enter_note">#89c3c3c3</color>
     <color name="timestamp">#858585</color>
     <color name="note_list_text">#232323</color>
+    <color name="ratingbar">#FDD017</color>
+    <color name="ratingbarvuota">#747170	</color>
 </resources>

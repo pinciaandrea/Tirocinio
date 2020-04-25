@@ -2,37 +2,42 @@ package com.example.progetto;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.progetto.Database.DatabaseHelper;
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.Utils.MyDividerItemDecoration;
 import com.example.progetto.Utils.NotesAdapter;
 import com.example.progetto.Utils.RecyclerTouchListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 public class ActivityThree extends AppCompatActivity
@@ -43,7 +48,7 @@ public class ActivityThree extends AppCompatActivity
     private CoordinatorLayout coordinatorLayout;
     private RecyclerView recyclerView;
     private TextView noNotesView;
-    private DatabaseHelper db;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,26 +87,21 @@ public class ActivityThree extends AppCompatActivity
         coordinatorLayout = findViewById(R.id.coordinator_layout);
         recyclerView = findViewById(R.id.recycler_view);
         noNotesView = findViewById(R.id.empty_notes_view);
-
-        db = new DatabaseHelper(this);
-        notesList.addAll(db.getAllNotes());
+        ratingBar = findViewById(R.id.rating_bar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = preferences.getString("Name","0");
-        if(name.equals("1")) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showNoteDialog(null, -1);
+                    showNoteDialog(null, -1,0);
                 }
             });
         } else {
-            Toast.makeText(getApplicationContext(), "Devi effettuare il login per inserire " +
-                    "una recensione!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Per inserire una recensione devi aver effettuato il login",Toast.LENGTH_SHORT).show();
         }
-
 
         mAdapter = new NotesAdapter(this, notesList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager
@@ -111,8 +111,6 @@ public class ActivityThree extends AppCompatActivity
         recyclerView.addItemDecoration(new MyDividerItemDecoration
                 (this, LinearLayoutManager.VERTICAL, 16));
         recyclerView.setAdapter(mAdapter);
-
-        toggleEmptyNotes();
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this,
                 recyclerView, new RecyclerTouchListener.ClickListener() {
@@ -128,42 +126,51 @@ public class ActivityThree extends AppCompatActivity
 
     }
 
-    private void createNote(String note) {
+    public void createNewReview (String note, float rating){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        long id = db.insertNote(note);
-        Note n = db.getNote(id);
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        if (n != null) {
-            notesList.add(0, n);
-            mAdapter.notifyDataSetChanged();
-            toggleEmptyNotes();
-        }
+        Map<String,Object> review_data = new HashMap<>();
+        review_data.put("testo",note);
+        review_data.put("userID",userID);
+        review_data.put("valutazione",rating);
+        //Note notes = new Note();
+        //notes.setNote(note);
+        //notes.setUser_id(userID);
+        //notes.setValue(value);
+
+        db.collection("Recensioni").add(review_data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                if(documentReference != null){
+                    Toast.makeText(ActivityThree.this,"Inserimento riuscito",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ActivityThree.this, "Inserimento non riuscito", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
-    private void updateNote(String note, int position) {
-        Note n = notesList.get(position);
-        n.setNote(note);
-        db.updateNote(n);
-        notesList.set(position, n);
-        mAdapter.notifyItemChanged(position);
-        toggleEmptyNotes();
-    }
-
-    private void showNoteDialog(final Note note, final int position) {
+    private void showNoteDialog(final Note note, final int position, final float rating) {
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getApplicationContext());
         View view = layoutInflaterAndroid.inflate(R.layout.note_dialog, null);
 
         AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(ActivityThree.this);
         alertDialogBuilderUserInput.setView(view);
 
+        //final RatingBar ratingBar = new RatingBar(this);
+        final RatingBar ratingBar1 = view.findViewById(R.id.rating_bar);
         final EditText inputNote = view.findViewById(R.id.note);
-        TextView dialogTitle = view.findViewById(R.id.dialog_title);
+        //TextView dialogTitle = view.findViewById(R.id.dialog_title);
 
         alertDialogBuilderUserInput
                 .setCancelable(false)
                 .setPositiveButton("Salva", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
-
+                        float rating1 = ratingBar1.getRating();
+                        dialogBox.dismiss();
+                        createNewReview(inputNote.getText().toString(),rating1);
                     }
                 })
                 .setNegativeButton("Cancella",
@@ -175,7 +182,7 @@ public class ActivityThree extends AppCompatActivity
 
         final AlertDialog alertDialog = alertDialogBuilderUserInput.create();
         alertDialog.show();
-
+/*
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,16 +192,15 @@ public class ActivityThree extends AppCompatActivity
                 } else {
                     alertDialog.dismiss();
                 }
-
                 if ( note != null) {
-                    updateNote(inputNote.getText().toString(), position);
-                } else {
-                    createNote(inputNote.getText().toString());
+                    createNewReview(inputNote.getText().toString());
                 }
             }
-        });
-    }
 
+        });
+        */
+    }
+/*
     private void toggleEmptyNotes() {
         if (db.getNotesCount() > 0) {
             noNotesView.setVisibility(View.GONE);
@@ -202,7 +208,7 @@ public class ActivityThree extends AppCompatActivity
             noNotesView.setVisibility(View.VISIBLE);
         }
     }
-
+*/
     @Override
     public void onClick(View v) {
 
