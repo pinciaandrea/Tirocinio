@@ -2,18 +2,15 @@ package com.example.progetto.Utils;
 
 
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,14 +22,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView note;
-        public TextView dot;
-        public TextView timestamp;
+        public TextView IDuser;
+        public RatingBar ratingBar;
 
         public MyViewHolder(View view) {
             super(view);
             note = view.findViewById(R.id.note);
-            dot = view.findViewById(R.id.dot);
-            timestamp = view.findViewById(R.id.timestamp);
+            IDuser = view.findViewById(R.id.email);
+            ratingBar = view.findViewById(R.id.rating_bar2);
         }
     }
 
@@ -53,11 +50,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note note = notesList.get(position);
+        holder.note.setText(note.getTesto());
+        holder.IDuser.setText(note.getUserID());
+        holder.ratingBar.setRating(note.getRating());
+    }
 
-        holder.note.setText(note.getNote());
-
-        // Displaying dot from HTML character code
-        holder.dot.setText(Html.fromHtml("&#8226;"));
+    public void update(List<Note> notesList){
+        this.notesList = notesList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -65,21 +65,4 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
         return notesList.size();
     }
 
-    /**
-     * Formatting timestamp to `MMM d` format
-     * Input: 2018-02-21 00:15:42
-     * Output: Feb 21
-     */
-    private String formatDate(String dateStr) {
-        try {
-            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = fmt.parse(dateStr);
-            SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d");
-            return fmtOut.format(date);
-        } catch (ParseException e) {
-
-        }
-
-        return "";
-    }
 }

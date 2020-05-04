@@ -15,14 +15,17 @@ import android.widget.Toast;
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.Utils.MyDividerItemDecoration;
 import com.example.progetto.Utils.NotesAdapter;
-import com.example.progetto.Utils.RecyclerTouchListener;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,7 +92,7 @@ public class ActivityThree extends AppCompatActivity
         noNotesView = findViewById(R.id.empty_notes_view);
         ratingBar = findViewById(R.id.rating_bar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null) {
@@ -111,34 +114,20 @@ public class ActivityThree extends AppCompatActivity
         recyclerView.addItemDecoration(new MyDividerItemDecoration
                 (this, LinearLayoutManager.VERTICAL, 16));
         recyclerView.setAdapter(mAdapter);
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this,
-                recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, final int position) {
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
+        LoadDataFromdatabase();
 
     }
 
-    public void createNewReview (String note, float rating){
+    public void createNewReview (String note, float rating, int position){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         Map<String,Object> review_data = new HashMap<>();
         review_data.put("testo",note);
         review_data.put("userID",userID);
         review_data.put("valutazione",rating);
-        //Note notes = new Note();
-        //notes.setNote(note);
-        //notes.setUser_id(userID);
-        //notes.setValue(value);
+        review_data.put("posizione",position);
 
         db.collection("Recensioni").add(review_data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -148,6 +137,30 @@ public class ActivityThree extends AppCompatActivity
                 } else {
                     Toast.makeText(ActivityThree.this, "Inserimento non riuscito", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        mAdapter.update(notesList);
+        notesList.clear();
+        LoadDataFromdatabase();
+    }
+
+    private void LoadDataFromdatabase(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Recensioni").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                for(QueryDocumentSnapshot querySnapshot : task.getResult()){
+                    Note n = new Note(querySnapshot.getString("testo"), querySnapshot.getString("userID"), querySnapshot.getLong("valutazione"));
+                    notesList.add(n);
+                    notesList.size();
+                    if(notesList.size() == 0){
+
+                    } else {
+                        noNotesView.setVisibility(View.INVISIBLE);
+                    }
+                }
+                mAdapter = new NotesAdapter(ActivityThree.this, notesList);
+                recyclerView.setAdapter(mAdapter);
             }
         });
     }
@@ -169,8 +182,8 @@ public class ActivityThree extends AppCompatActivity
                 .setPositiveButton("Salva", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
                         float rating1 = ratingBar1.getRating();
+                        createNewReview(inputNote.getText().toString(),rating1,position);
                         dialogBox.dismiss();
-                        createNewReview(inputNote.getText().toString(),rating1);
                     }
                 })
                 .setNegativeButton("Cancella",
@@ -182,24 +195,8 @@ public class ActivityThree extends AppCompatActivity
 
         final AlertDialog alertDialog = alertDialogBuilderUserInput.create();
         alertDialog.show();
-/*
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(inputNote.getText().toString())) {
-                    Toast.makeText(ActivityThree.this, "Inserisci la tua review!", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    alertDialog.dismiss();
-                }
-                if ( note != null) {
-                    createNewReview(inputNote.getText().toString());
-                }
-            }
-
-        });
-        */
     }
+
 /*
     private void toggleEmptyNotes() {
         if (db.getNotesCount() > 0) {

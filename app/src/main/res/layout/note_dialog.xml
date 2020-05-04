@@ -25,8 +25,8 @@
         android:numStars="5"
         android:stepSize="1"
         android:progressTint="@color/ratingbar"
-        android:progressBackgroundTint="@color/ratingbarvuota"
         android:id="@+id/rating_bar"
+        android:progressBackgroundTint="@color/ratingbarvuota"
         />
 
     <EditText
