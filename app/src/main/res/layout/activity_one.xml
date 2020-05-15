@@ -27,36 +27,26 @@
             app:itemBackground="@color/design_default_color_primary"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@android:color/white"
+            app:labelVisibilityMode="labeled"
+
             app:menu="@menu/bottom_nav_menu" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager_id"
             android:layout_width="match_parent"
-            android:layout_height="160dp" />
-
-
-        <Button
-            android:id="@+id/button"
-            android:background="@drawable/roundedbutton"
-            style="@android:style/Widget.Material.Light.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
+            android:layout_height="139dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:text="Home"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+            android:layout_marginTop="84dp" />
+
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="225dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="informazioni"
             android:text="Il Papeete Beach offre tutti i servizi di cui un ospite  può necessitare, lettini singoli, lettini con ombrellone aree riservate, bar, chiringuito, ristoranti per eventi aziendali e happining. Papeete offre la soluzione ad ogni esigenza per vivere la spiaggia. Oltre a lettini ed ombrelloni l’offerta è ricca di soluzioni studiate per rendere unico il soggiorno al Beach club."
@@ -110,14 +100,26 @@
         <ImageView
             android:id="@+id/papete_location"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="237dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="297dp"
+            android:layout_marginTop="359dp"
             android:layout_marginBottom="135dp"
             app:srcCompat="@drawable/papete_location" />
+
+        <TextView
+            android:id="@+id/titolo"
+            android:layout_width="220dp"
+            android:layout_height="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            android:text="Benvenuto"
+            android:textSize="45dp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

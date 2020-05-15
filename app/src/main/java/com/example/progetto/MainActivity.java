@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
-        btn_sign_out = (Button) findViewById(R.id.btn_sign_out);
+        btn_sign_out = findViewById(R.id.btn_sign_out);
         btn_sign_out.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -76,12 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         aggiungiUtentePost.setOnClickListener(this);
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView =  findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.action_informazioni:
+                    case R.id.action_home:
                         Intent intent1 = new Intent(MainActivity.this, ActivityOne.class);
                         startActivity(intent1);
                         break;
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Intent intent3 = new Intent(MainActivity.this, ActivityThree.class);
                         startActivity(intent3);
                         break;
+                        
                 }
                 return false;
             }
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-            aggiungiUtentePost = (Button)  findViewById(R.id.aggiungi_utente_post);
+            aggiungiUtentePost =  findViewById(R.id.aggiungi_utente_post);
             showSignInOptions();
         }
 

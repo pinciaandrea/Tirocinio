@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,7 +50,7 @@ public class ActivityTwo extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.action_informazioni:
+                    case R.id.action_home:
                         Intent intent1 = new Intent(ActivityTwo.this, ActivityOne.class);
                         startActivity(intent1);
                         break;
@@ -60,17 +58,11 @@ public class ActivityTwo extends AppCompatActivity {
                         Intent intent3 = new Intent(ActivityTwo.this, ActivityThree.class);
                         startActivity(intent3);
                         break;
+                    case R.id.action_profilo:
+                        Intent intent4 = new Intent(ActivityTwo.this,MainActivity.class);
+                        startActivity(intent4);
                 }
                 return false;
-            }
-        });
-
-        Button bhome2 = (Button) findViewById(R.id.button2);
-        bhome2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent5 = new Intent(ActivityTwo.this, MainActivity.class);
-                startActivity(intent5);
             }
         });
 

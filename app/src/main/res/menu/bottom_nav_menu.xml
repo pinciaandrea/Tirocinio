@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_informazioni"
+        android:id="@+id/action_home"
         android:enabled="true"
-        android:icon="@drawable/ic_action_informazioni"
-        android:title="Informazioni"
+        android:icon="@drawable/ic_action_home"
+        android:title="Home"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_prenotazione"
@@ -19,4 +20,12 @@
         android:icon="@drawable/ic_action_recensioni"
         android:title="Recensioni"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_profilo"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_profilo"
+        android:title="Profilo"
+        app:showAsAction="ifRoom" />
+
 </menu>

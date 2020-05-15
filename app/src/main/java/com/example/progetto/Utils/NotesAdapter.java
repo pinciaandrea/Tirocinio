@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,6 +66,19 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     @Override
     public int getItemCount() {
         return notesList.size();
+    }
+
+    private String formatDate(String dateStr) {
+        try {
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = fmt.parse(dateStr);
+            SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d");
+            return fmtOut.format(date);
+        } catch (ParseException e) {
+
+        }
+
+        return "";
     }
 
 }

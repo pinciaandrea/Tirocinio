@@ -2,7 +2,6 @@ package com.example.progetto.Database.Model;
 
 public class Note {
 
-    private String note;
     private int id;
     private String userID;
     private float rating;
@@ -26,30 +25,12 @@ public class Note {
         return rating;
     }
 
-
-    public Note(String note,float rating) {
-        this.note = note;
-        this.rating = rating;
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public void setRating(Float rating){
-        this.rating = rating;
     }
 
 }

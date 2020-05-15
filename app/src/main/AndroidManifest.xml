@@ -24,17 +24,21 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
       >
-        <activity android:name="com.example.progetto.MainActivity"
-            android:screenOrientation="portrait">
+        <activity android:name="com.example.progetto.ActivityOne"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.progetto.ActivityOne"></activity>
-        <activity android:name="com.example.progetto.ActivityTwo"></activity>
-        <activity android:name="com.example.progetto.ActivityThree"></activity>
+        <activity android:name="com.example.progetto.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name="com.example.progetto.ActivityTwo"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name="com.example.progetto.ActivityThree"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key"/>

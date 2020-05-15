@@ -13,21 +13,23 @@
     <TextView
         android:id="@+id/dot"
         android:layout_width="wrap_content"
-        android:layout_height="29dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_10"
         android:layout_marginRight="@dimen/dot_margin_right"
         android:includeFontPadding="false"
         android:lineSpacingExtra="0dp"
+        android:text="."
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/dot_text_size" />
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="241dp"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/dot"
-        android:textColor="@color/timestamp"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/timestamp" />
+
 
     <RatingBar
         android:id="@+id/rating_bar2"

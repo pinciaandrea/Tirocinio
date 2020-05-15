@@ -2,16 +2,17 @@ package com.example.progetto;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 public class ActivityOne extends AppCompatActivity implements View.OnClickListener {
 
@@ -68,6 +69,9 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
                         Intent intent3 = new Intent(ActivityOne.this, ActivityThree.class);
                         startActivity(intent3);
                         break;
+                    case R.id.action_profilo:
+                        Intent intent4 = new Intent(ActivityOne.this,MainActivity.class);
+                        startActivity(intent4);
                 }
                 return false;
             }
@@ -77,14 +81,6 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
             adapter= new SlideAdapter(this);
             viewPager.setAdapter(adapter);
 
-            Button bhome = findViewById(R.id.button);
-            bhome.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent4 = new Intent(ActivityOne.this, MainActivity.class);
-                    startActivity(intent4);
-                }
-            });
 
         }
 
