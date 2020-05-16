@@ -13,10 +13,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -34,90 +34,110 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager_id"
             android:layout_width="match_parent"
-            android:layout_height="139dp"
+            android:layout_height="178dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="84dp" />
+            android:layout_marginTop="109dp" />
 
+
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="225dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="107dp"
+            android:background="@drawable/rettangolo" />
+
+
+        <ImageView
+            android:layout_width="131dp"
+            android:layout_height="226dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="262dp"
+            android:layout_marginBottom="104dp"
+            android:background="@drawable/rettangolo" />
+
+        <ImageView
+            android:id="@+id/meteo"
+            android:layout_width="69dp"
+            android:layout_height="76dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="46dp"
+            android:layout_marginBottom="229dp"
+            android:contentDescription="meteo"
+            app:srcCompat="@mipmap/meteo" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/temperatura"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView6"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="225dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="informazioni"
-            android:text="Il Papeete Beach offre tutti i servizi di cui un ospite  può necessitare, lettini singoli, lettini con ombrellone aree riservate, bar, chiringuito, ristoranti per eventi aziendali e happining. Papeete offre la soluzione ad ogni esigenza per vivere la spiaggia. Oltre a lettini ed ombrelloni l’offerta è ricca di soluzioni studiate per rendere unico il soggiorno al Beach club."
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+            android:layout_marginStart="51dp"
+            android:layout_marginBottom="5dp"
+            android:text="25°"
+            android:textColor="@color/scritte_nere"
+            android:textSize="45dp"
+            android:textStyle="bold" />
+
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
+            android:layout_width="67dp"
+            android:layout_height="63dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="33dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginStart="248dp"
+            android:layout_marginBottom="242dp"
             android:contentDescription="wifi"
             app:srcCompat="@mipmap/wifi1" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
+            android:layout_width="64dp"
+            android:layout_height="62dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="120dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginStart="325dp"
+            android:layout_marginBottom="242dp"
             android:contentDescription="park"
             app:srcCompat="@mipmap/park1" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
+            android:layout_width="69dp"
+            android:layout_height="63dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginBottom="141dp"
             android:contentDescription="restaurant"
             app:srcCompat="@mipmap/menu1" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="33dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="140dp"
             android:contentDescription="shower"
             app:srcCompat="@mipmap/doccia1" />
 
-        <ImageView
-            android:id="@+id/papete_location"
-            android:layout_width="match_parent"
-            android:layout_height="237dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="359dp"
-            android:layout_marginBottom="135dp"
-            app:srcCompat="@drawable/papete_location" />
 
         <TextView
             android:id="@+id/titolo"
-            android:layout_width="220dp"
-            android:layout_height="47dp"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
             android:text="Benvenuto"
+            android:textColor="@color/scritte_nere"
             android:textSize="45dp"
             android:textStyle="bold" />
 

@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -19,6 +19,7 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
 
     ViewPager viewPager;
     SlideAdapter adapter;
+    ActivityOne activityOne;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,26 +33,54 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
         wifiButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "La struttura offre una copertura WIFi in tutto il locale e in un raggio d'azione entro 50 metri dalla struttura stessa.", Toast.LENGTH_LONG).show();
 
+                final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityOne.this);
+                View  mView = getLayoutInflater().inflate(R.layout.servizi1, null);
+                alert.setView(mView);
+
+                final AlertDialog alertDialog = alert.create();
+                alertDialog.setCanceledOnTouchOutside(true);
+
+                alertDialog.show();
             }
         });
         parkButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Tra le comodità offerte dal nostro stabilimento, incluso nel prezzo dell'ombrellone avrete accesso al parcheggio privato custodito che troverete appena arrivati e seguendo le indicazioni stradali.", Toast.LENGTH_LONG).show();
+                final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityOne.this);
+                View  mView = getLayoutInflater().inflate(R.layout.servizi2, null);
+                alert.setView(mView);
+
+                final AlertDialog alertDialog = alert.create();
+                alertDialog.setCanceledOnTouchOutside(true);
+
+                alertDialog.show();
             }
         });
         eatButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "MENU: Spaghetti alle vongole, Arrosto misto o Frittura, Dolce e caffe'.", Toast.LENGTH_LONG).show();
+                final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityOne.this);
+                View  mView = getLayoutInflater().inflate(R.layout.servizi3, null);
+                alert.setView(mView);
+
+                final AlertDialog alertDialog = alert.create();
+                alertDialog.setCanceledOnTouchOutside(true);
+
+                alertDialog.show();
             }
         });
         showerButtonALert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Quattro docce grauite a tutti i bagnanti dello stabilimento e possibilità di una doccia calda a €0.50.", Toast.LENGTH_LONG).show();
+                final AlertDialog.Builder alert = new AlertDialog.Builder(ActivityOne.this);
+                View  mView = getLayoutInflater().inflate(R.layout.servizi4, null);
+                alert.setView(mView);
+
+                final AlertDialog alertDialog = alert.create();
+                alertDialog.setCanceledOnTouchOutside(true);
+
+                alertDialog.show();
             }
         });
 
