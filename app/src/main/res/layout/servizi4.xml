@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="130dp"
+    android:layout_marginBottom="230dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Doccia calda gratuita"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Per noi è importante il benessere del nostro cliente, doccial calda gratis per tutti i bagnanti! "
+        android:textSize="25dp"
+        android:textStyle="italic"/>
+
+</LinearLayout>

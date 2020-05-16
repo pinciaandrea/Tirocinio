@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="130dp"
+    android:layout_marginBottom="230dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Servizio WI-FI incluso"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="La struttura offre una copertura WIFi in tutto il locale e in un raggio d'azione entro 50 metri dalla struttura stessa."
+        android:textSize="25dp"
+        android:textStyle="italic"/>
+
+</LinearLayout>
