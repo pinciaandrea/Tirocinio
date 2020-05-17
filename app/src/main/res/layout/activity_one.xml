@@ -24,36 +24,52 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
-            app:itemBackground="@color/design_default_color_primary"
-            app:itemIconTint="@android:color/white"
-            app:itemTextColor="@android:color/white"
+            app:itemBackground="@color/white"
+            app:itemIconTint="@color/scritte_nere"
+            app:itemTextColor="@color/scritte_nere"
             app:labelVisibilityMode="labeled"
 
             app:menu="@menu/bottom_nav_menu" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager_id"
-            android:layout_width="match_parent"
-            android:layout_height="178dp"
+            android:layout_width="372dp"
+            android:layout_height="229dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="109dp" />
-
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp" />
 
         <ImageView
             android:layout_width="175dp"
             android:layout_height="225dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="107dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="104dp"
+            android:background="@drawable/rettangolo" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="254dp"
+            android:layout_below="@+id/titolo"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="372dp"
             android:background="@drawable/rettangolo" />
 
 
         <ImageView
             android:layout_width="131dp"
             android:layout_height="226dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="18dp"
             android:layout_marginEnd="262dp"
             android:layout_marginBottom="104dp"
             android:background="@drawable/rettangolo" />
@@ -89,41 +105,41 @@
             android:layout_height="63dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="248dp"
+            android:layout_marginStart="233dp"
             android:layout_marginBottom="242dp"
             android:contentDescription="wifi"
             app:srcCompat="@mipmap/wifi1" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="64dp"
-            android:layout_height="62dp"
+            android:layout_width="67dp"
+            android:layout_height="63dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="325dp"
+            android:layout_marginStart="316dp"
             android:layout_marginBottom="242dp"
             android:contentDescription="park"
             app:srcCompat="@mipmap/park1" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="69dp"
+            android:layout_width="67dp"
             android:layout_height="63dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="95dp"
+            android:layout_marginEnd="110dp"
             android:layout_marginBottom="141dp"
             android:contentDescription="restaurant"
             app:srcCompat="@mipmap/menu1" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="67dp"
+            android:layout_height="63dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="140dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="141dp"
             android:contentDescription="shower"
             app:srcCompat="@mipmap/doccia1" />
 
@@ -134,8 +150,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="23dp"
             android:text="Benvenuto"
             android:textColor="@color/scritte_nere"
             android:textSize="45dp"

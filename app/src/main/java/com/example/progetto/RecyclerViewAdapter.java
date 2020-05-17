@@ -53,7 +53,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                  FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                  if(user != null){
                      if(umbrella_obj.getPrenotato()){
-                         Toast.makeText(activityTwo," Ombrellone Prenotato",Toast.LENGTH_SHORT).show();
+                         LayoutInflater inflater= activityTwo.getLayoutInflater();
+
+                         final AlertDialog.Builder alert = new AlertDialog.Builder(activityTwo);
+                         View mView = inflater.inflate(R.layout.busyumbrelladialog, null);
+
+                         Button btn_cancel =  mView.findViewById(R.id.btn_cancel);
+
+                         alert.setView(mView);
+
+                         final AlertDialog alertDialog = alert.create();
+                         alertDialog.setCanceledOnTouchOutside(false);
+
+                         btn_cancel.setOnClickListener(new View.OnClickListener() {
+                             @Override
+                             public void onClick(View view) {
+                                 alertDialog.dismiss();
+                             }
+                         });
+
+                         alertDialog.show();
+
                      } else {
                          LayoutInflater inflater= activityTwo.getLayoutInflater();
 
