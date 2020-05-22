@@ -5,8 +5,9 @@
         android:top="4dp"
         android:right="15dp"
         android:bottom="4dp" />
-    <stroke
-        android:width="4dp"
-        android:color="	#000000" />
     <corners android:radius="7dp" />
+    <gradient
+        android:startColor="#99CC00"
+        android:endColor="#2C8008"
+        android:type="linear" />
 </shape>

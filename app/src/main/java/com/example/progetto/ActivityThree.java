@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.progetto.Database.Model.Note;
 import com.example.progetto.Utils.MyDividerItemDecoration;
 import com.example.progetto.Utils.NotesAdapter;
+import com.example.progetto.Utils.VerticalSpaceItemDecoration;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -57,6 +58,7 @@ public class ActivityThree extends AppCompatActivity
         setContentView(R.layout.activity_three);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.action_recensioni);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -97,6 +99,8 @@ public class ActivityThree extends AppCompatActivity
         }
 
         mAdapter = new NotesAdapter(this, notesList);
+        VerticalSpaceItemDecoration itemDecoration = new VerticalSpaceItemDecoration(20);
+        recyclerView.addItemDecoration(itemDecoration);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager
                 (getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

@@ -3,12 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
+    android:clickable="false"
     android:foreground="?attr/selectableItemBackground"
     android:paddingBottom="@dimen/dimen_10"
-    android:paddingLeft="@dimen/activity_margin"
+    android:paddingLeft="16dp"
     android:paddingRight="@dimen/activity_margin"
-    android:paddingTop="@dimen/dimen_10">
+    android:paddingTop="@dimen/dimen_10"
+    android:layout_margin="10dp"
+    android:background="@drawable/rettangolo_recensioni">
 
     <TextView
         android:id="@+id/dot"

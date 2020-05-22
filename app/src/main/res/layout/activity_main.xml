@@ -25,35 +25,51 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             app:itemBackground="@color/white"
-            app:itemIconTint="@color/scritte_nere"
-            app:itemTextColor="@color/scritte_nere"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="450dp"
-            android:layout_height="250dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="200dp"
-            android:cropToPadding="false"
-            android:scaleType="center"
-            app:srcCompat="@drawable/logomain" />
-
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="272dp"
-            android:layout_height="37dp"
+            android:id="@+id/titolo3"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="298dp"
-            android:gravity="center"
-            android:text="Chalet PAPEETE, your lovely bathouse." />
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="23dp"
+            android:text="Profilo"
+            android:textColor="@color/scritte_nere"
+            android:textSize="45dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="308dp"
+            android:layout_height="211dp"
+            android:layout_above="@+id/aggiungi_utente_post"
+            android:layout_below="@+id/titolo3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="73dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="125dp"
+            android:background="@drawable/rettangolo_verde" />
+
+        <TextView
+            android:id="@+id/cosa_fare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="158dp"
+            android:layout_marginEnd="56dp"
+            android:text="Registrandosi si ha la possibilità di prenotare un ombrellone direttamente da casa tua ! Inoltre potrai lasciare una recensione relativa al tuo soggiorno!"
+            android:textColor="@color/scritte_nere"
+            android:textSize="25dp"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/aggiungi_utente_post"

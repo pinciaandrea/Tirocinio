@@ -13,10 +13,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -25,8 +25,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             app:itemBackground="@color/white"
-            app:itemIconTint="@color/scritte_nere"
-            app:itemTextColor="@color/scritte_nere"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
             app:labelVisibilityMode="labeled"
 
             app:menu="@menu/bottom_nav_menu" />
@@ -35,23 +35,26 @@
             android:id="@+id/viewPager_id"
             android:layout_width="372dp"
             android:layout_height="229dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="125dp" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="18dp" />
 
         <ImageView
-            android:layout_width="175dp"
-            android:layout_height="225dp"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="18dp"
             android:layout_marginBottom="104dp"
-            android:background="@drawable/rettangolo" />
+            android:background="@drawable/rettangolo_celeste" />
 
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="254dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/titolo"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
@@ -60,39 +63,38 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="372dp"
-            android:background="@drawable/rettangolo" />
+            android:background="@drawable/rettangolo_slideshow" />
 
 
         <ImageView
-            android:layout_width="131dp"
-            android:layout_height="226dp"
+            android:layout_width="150dp"
+            android:layout_height="250dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="18dp"
-            android:layout_marginEnd="262dp"
+            android:layout_marginEnd="250dp"
             android:layout_marginBottom="104dp"
-            android:background="@drawable/rettangolo" />
+            android:background="@drawable/rettangolo_verde" />
 
         <ImageView
             android:id="@+id/meteo"
-            android:layout_width="69dp"
-            android:layout_height="76dp"
+            android:layout_width="77dp"
+            android:layout_height="81dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="46dp"
-            android:layout_marginBottom="229dp"
-            android:contentDescription="meteo"
-            app:srcCompat="@mipmap/meteo" />
+            android:layout_marginStart="51dp"
+            android:layout_marginBottom="243dp"
+            app:srcCompat="@drawable/icona_meteo" />
 
         <TextView
             android:id="@+id/temperatura"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="73dp"
             android:layout_alignBottom="@+id/imageView6"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginStart="61dp"
+            android:layout_marginBottom="11dp"
             android:text="25°"
             android:textColor="@color/scritte_nere"
             android:textSize="45dp"
@@ -105,10 +107,9 @@
             android:layout_height="63dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="233dp"
-            android:layout_marginBottom="242dp"
-            android:contentDescription="wifi"
-            app:srcCompat="@mipmap/wifi1" />
+            android:layout_marginStart="213dp"
+            android:layout_marginBottom="259dp"
+            app:srcCompat="@drawable/wifi" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -116,10 +117,9 @@
             android:layout_height="63dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="316dp"
-            android:layout_marginBottom="242dp"
-            android:contentDescription="park"
-            app:srcCompat="@mipmap/park1" />
+            android:layout_marginStart="315dp"
+            android:layout_marginBottom="258dp"
+            app:srcCompat="@drawable/car_parking" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -127,10 +127,9 @@
             android:layout_height="63dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="110dp"
-            android:layout_marginBottom="141dp"
-            android:contentDescription="restaurant"
-            app:srcCompat="@mipmap/menu1" />
+            android:layout_marginEnd="129dp"
+            android:layout_marginBottom="144dp"
+            app:srcCompat="@drawable/wine" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -140,8 +139,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="29dp"
             android:layout_marginBottom="141dp"
-            android:contentDescription="shower"
-            app:srcCompat="@mipmap/doccia1" />
+            app:srcCompat="@drawable/shower" />
 
 
         <TextView

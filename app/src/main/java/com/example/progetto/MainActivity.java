@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         BottomNavigationView bottomNavigationView =  findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.action_profilo);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -141,11 +142,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void  updateUI(FirebaseUser account){
         if(account != null){
-            Toast.makeText(this,"Hai effettuato l'accesso correttamente",Toast.LENGTH_SHORT).show();
             aggiungiUtentePost.setVisibility(View.GONE);
             btn_sign_out.setEnabled(true);
         }else {
-            Toast.makeText(this,"Non hai ancora effettuato l'accesso",Toast.LENGTH_SHORT).show();
+
         }
     }
 
