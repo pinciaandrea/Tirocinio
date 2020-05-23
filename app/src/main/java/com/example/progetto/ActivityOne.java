@@ -26,6 +26,7 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
 
+        //getWindow().setStatusBarColor(Color.WHITE);
         ImageView wifiButtonALert = findViewById(R.id.imageView3);
         ImageView parkButtonALert = findViewById(R.id.imageView4);
         ImageView eatButtonALert = findViewById(R.id.imageView5);
