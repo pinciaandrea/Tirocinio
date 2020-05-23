@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/scritte_nere"
+            android:backgroundTint="@color/colorAccent"
             android:text="torna indietro"
             android:textColor="#ffffff" />
 

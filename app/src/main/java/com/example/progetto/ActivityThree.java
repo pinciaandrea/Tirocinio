@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.progetto.Database.Model.Note;
-import com.example.progetto.Utils.MyDividerItemDecoration;
 import com.example.progetto.Utils.NotesAdapter;
 import com.example.progetto.Utils.VerticalSpaceItemDecoration;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -105,8 +104,6 @@ public class ActivityThree extends AppCompatActivity
                 (getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new MyDividerItemDecoration
-                (this, LinearLayoutManager.VERTICAL, 16));
         recyclerView.setAdapter(mAdapter);
         LoadDataFromdatabase();
 

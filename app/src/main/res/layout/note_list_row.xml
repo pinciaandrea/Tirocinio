@@ -13,22 +13,9 @@
     android:background="@drawable/rettangolo_recensioni">
 
     <TextView
-        android:id="@+id/dot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_10"
-        android:layout_marginRight="@dimen/dot_margin_right"
-        android:includeFontPadding="false"
-        android:lineSpacingExtra="0dp"
-        android:text="."
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/dot_text_size" />
-
-    <TextView
         android:id="@+id/email"
         android:layout_width="241dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dot"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/timestamp" />
 
@@ -37,14 +24,12 @@
         android:id="@+id/rating_bar2"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
-        android:layout_alignTop="@+id/dot"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/dot"
+        android:layout_marginTop="20dp"
         android:isIndicator="true"
-        android:progressTint="@color/ratingbar"
+        android:secondaryProgressTint="@android:color/transparent"
         android:progressBackgroundTint="@color/ratingbarvuota"
-        />
+        android:progressTint="@color/ratingbar" />
 
     <TextView
         android:id="@+id/note"
@@ -53,7 +38,6 @@
         android:layout_below="@id/email"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="49dp"
-        android:layout_toRightOf="@id/dot"
         android:textColor="@color/note_list_text"
         android:textSize="@dimen/note_list_text" />
 
